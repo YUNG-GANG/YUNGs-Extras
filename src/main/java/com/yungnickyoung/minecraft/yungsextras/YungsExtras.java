@@ -1,6 +1,7 @@
 package com.yungnickyoung.minecraft.yungsextras;
 
 import com.yungnickyoung.minecraft.yungsextras.init.YEModFeatures;
+import com.yungnickyoung.minecraft.yungsextras.init.YEModPlacements;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,6 +18,7 @@ public class YungsExtras {
     }
 
     private void init() {
+        YEModPlacements.init();
         YEModFeatures.init();
     }
 }

@@ -10,46 +10,55 @@ import net.minecraft.world.gen.feature.IFeatureConfig;
 
 public class YEModConfiguredFeatures {
     /* Normal wells */
-    public static ConfiguredFeature<?, ?> WELL_SM = YEModFeatures.WELL_SM.get()
+    public static final ConfiguredFeature<?, ?> WELL_SM = YEModFeatures.WELL_SM.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
-    public static ConfiguredFeature<?, ?> WELL_MD = YEModFeatures.WELL_MD.get()
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> WELL_MD = YEModFeatures.WELL_MD.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
-    public static ConfiguredFeature<?, ?> WELL_LG = YEModFeatures.WELL_LG.get()
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> WELL_LG = YEModFeatures.WELL_LG.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
     /* Dry wells */
-    public static ConfiguredFeature<?, ?> DRY_WELL_SM = YEModFeatures.DRY_WELL_SM.get()
+    public static final ConfiguredFeature<?, ?> DRY_WELL_SM = YEModFeatures.DRY_WELL_SM.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
-    public static ConfiguredFeature<?, ?> DRY_WELL_MD = YEModFeatures.DRY_WELL_MD.get()
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> DRY_WELL_MD = YEModFeatures.DRY_WELL_MD.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
-    public static ConfiguredFeature<?, ?> DRY_WELL_LG = YEModFeatures.DRY_WELL_LG.get()
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> DRY_WELL_LG = YEModFeatures.DRY_WELL_LG.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
     /* Wishing wells */
-    public static ConfiguredFeature<?, ?> WISHING_WELL_SM = YEModFeatures.WISHING_WELL_SM.get()
+    public static final ConfiguredFeature<?, ?> WISHING_WELL_SM = YEModFeatures.WISHING_WELL_SM.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
-    public static ConfiguredFeature<?, ?> WISHING_WELL_MD = YEModFeatures.WISHING_WELL_MD.get()
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> WISHING_WELL_MD = YEModFeatures.WISHING_WELL_MD.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
         .chance(10);
-    public static ConfiguredFeature<?, ?> WISHING_WELL_LG = YEModFeatures.WISHING_WELL_LG.get()
+    public static final ConfiguredFeature<?, ?> WISHING_WELL_LG = YEModFeatures.WISHING_WELL_LG.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
