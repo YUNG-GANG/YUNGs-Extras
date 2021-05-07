@@ -4,6 +4,6 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.desert_well.Abstrac
 
 public class LargeDesertWellFeature extends AbstractDesertWellFeature {
     public LargeDesertWellFeature() {
-        super("well_lg");
+        super("well_lg", 3);
     }
 }

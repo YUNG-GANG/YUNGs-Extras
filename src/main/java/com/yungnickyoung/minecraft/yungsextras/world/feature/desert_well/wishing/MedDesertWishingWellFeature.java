@@ -4,6 +4,6 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.desert_well.Abstrac
 
 public class MedDesertWishingWellFeature extends AbstractDesertWellFeature {
     public MedDesertWishingWellFeature() {
-        super("wishing_well_md");
+        super("wishing_well_md", 2);
     }
 }

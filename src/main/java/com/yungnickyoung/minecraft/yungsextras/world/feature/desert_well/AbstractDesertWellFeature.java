@@ -1,6 +1,5 @@
 package com.yungnickyoung.minecraft.yungsextras.world.feature.desert_well;
 
-import com.mojang.serialization.Codec;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractTemplateFeature;
 import net.minecraft.block.Block;
@@ -13,15 +12,19 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.template.Template;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
+@ParametersAreNonnullByDefault
 public abstract class AbstractDesertWellFeature extends AbstractTemplateFeature<NoFeatureConfig> {
     private static final String path = "desert/wells/";
+    private final int radius;
     protected ResourceLocation name;
 
-    public AbstractDesertWellFeature(String name) {
+    public AbstractDesertWellFeature(String name, int size) {
         super(NoFeatureConfig.field_236558_a_);
         this.name = new ResourceLocation(YungsExtras.MOD_ID, path + name);
+        this.radius = size;
     }
 
     @Override
@@ -38,10 +41,17 @@ public abstract class AbstractDesertWellFeature extends AbstractTemplateFeature<
         // Ensure valid position
         if (!BlockTags.SAND.contains(block)) return false;
 
-        // Naive check to avoid spawning on a shallow overhang
+        // Naive check to avoid spawning on a shallow overhang or steep cliff
         for (int i = 1; i <= 7; i++) {
             mutable.setPos(surfacePos).move(Direction.DOWN, i);
             if (world.isAirBlock(mutable)) return false;
+            mutable.setPos(surfacePos).move(Direction.DOWN, i).move(Direction.NORTH, radius).move(Direction.EAST, radius);
+            if (world.isAirBlock(mutable)) return false;
+            mutable.setPos(surfacePos).move(Direction.DOWN, i).move(Direction.EAST, radius).move(Direction.SOUTH, radius);
+            if (world.isAirBlock(mutable)) return false;
+            mutable.setPos(surfacePos).move(Direction.DOWN, i).move(Direction.SOUTH, radius).move(Direction.WEST, radius);
+            if (world.isAirBlock(mutable)) return false;
+            mutable.setPos(surfacePos).move(Direction.DOWN, i).move(Direction.WEST, radius).move(Direction.NORTH, radius);
         }
 
         // Generate the well
