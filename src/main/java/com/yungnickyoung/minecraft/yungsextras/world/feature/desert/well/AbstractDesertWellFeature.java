@@ -1,4 +1,4 @@
-package com.yungnickyoung.minecraft.yungsextras.world.feature.desert_well;
+package com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractTemplateFeature;
@@ -52,6 +52,7 @@ public abstract class AbstractDesertWellFeature extends AbstractTemplateFeature<
             mutable.setPos(surfacePos).move(Direction.DOWN, i).move(Direction.SOUTH, radius).move(Direction.WEST, radius);
             if (world.isAirBlock(mutable)) return false;
             mutable.setPos(surfacePos).move(Direction.DOWN, i).move(Direction.WEST, radius).move(Direction.NORTH, radius);
+            if (world.isAirBlock(mutable)) return false;
         }
 
         // Generate the well

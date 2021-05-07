@@ -60,6 +60,45 @@ public class YEModConfiguredFeatures {
         .chance(10)
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
+    /* Obelisks */
+    public static final ConfiguredFeature<?, ?> OBELISK = YEModFeatures.OBELISK.get()
+        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> OBELISK_CREEPER = YEModFeatures.OBELISK_CREEPER.get()
+        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> OBELISK_RUINED = YEModFeatures.OBELISK_RUINED.get()
+        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> OBELISK_RARE = YEModFeatures.OBELISK_RARE.get()
+        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+
+    /* Miscellaneous Desert Features */
+    public static final ConfiguredFeature<?, ?> GIANT_TORCH = YEModFeatures.GIANT_TORCH.get()
+        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> DESERT_RUINS_0 = YEModFeatures.DESERT_RUINS_0.get()
+        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> CHILLZONE = YEModFeatures.CHILLZONE.get()
+        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+        .chance(10)
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_sm"), WELL_SM);
@@ -71,5 +110,12 @@ public class YEModConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_sm"), WISHING_WELL_SM);
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_md"), WISHING_WELL_MD);
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_lg"), WISHING_WELL_LG);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk"), OBELISK);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_creeper"), OBELISK_CREEPER);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_ruined"), OBELISK_RUINED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_rare"), OBELISK_RARE);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_giant_torch"), GIANT_TORCH);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_ruins_0"), DESERT_RUINS_0);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_chillzone"), CHILLZONE);
     }
 }
