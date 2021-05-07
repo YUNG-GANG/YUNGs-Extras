@@ -10,6 +10,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 import java.util.stream.Stream;
 
+/**
+ * Properly initializes this placement's Random seed (which MC doesn't do on its own)
+ * to maximize variability in feature placement.
+ */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class RngInitializerPlacement extends Placement<NoPlacementConfig> {
