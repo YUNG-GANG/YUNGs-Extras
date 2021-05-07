@@ -33,6 +33,11 @@ public abstract class AbstractTemplateFeature<C extends IFeatureConfig> extends 
         PlacementSettings placement = new PlacementSettings();
         template.func_237144_a_(world, cornerPos, placement, rand);
 
+        // Additional optional processing
+        processTemplate(template, world, rand, cornerPos, placement);
+
         return template;
     }
+
+    protected void processTemplate(Template template, ISeedReader world, Random rand, BlockPos cornerPos, PlacementSettings placementSettings) {}
 }
