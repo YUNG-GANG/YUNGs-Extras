@@ -79,11 +79,14 @@ public class YEModFeatures {
      * Adds features to appropriate biomes.
      */
     private static void onBiomeLoad(BiomeLoadingEvent event) {
-        // Remove vanilla desert wells from biome generation settings.
-        event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).removeIf(supplier -> supplier.get().feature == Feature.DESERT_WELL);
+        // Ignore blacklisted biomes
+        if (YungsExtras.blacklistedBiomes.contains(event.getName().toString())) return;
 
-        // Add wells to biome generation settings for proper biomes
-        if (event.getCategory() == Biome.Category.DESERT) {
+        if (event.getCategory() == Biome.Category.DESERT || YungsExtras.additionalWhitelistedBiomes.contains(event.getName().toString())) {
+            // Remove vanilla desert wells from biome generation settings.
+            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).removeIf(supplier -> supplier.get().feature == Feature.DESERT_WELL);
+
+            // Add wells to biome generation settings for proper biomes
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_SM);
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_MD);
             event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_LG);

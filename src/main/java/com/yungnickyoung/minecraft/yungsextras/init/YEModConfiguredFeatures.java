@@ -1,6 +1,7 @@
 package com.yungnickyoung.minecraft.yungsextras.init;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
+import com.yungnickyoung.minecraft.yungsextras.config.YEConfig;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -13,90 +14,90 @@ public class YEModConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> WELL_SM = YEModFeatures.WELL_SM.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.wells.smallNormalWellSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> WELL_MD = YEModFeatures.WELL_MD.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.wells.mediumNormalWellSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> WELL_LG = YEModFeatures.WELL_LG.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.wells.largeNormalWellSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
     /* Dry wells */
     public static final ConfiguredFeature<?, ?> DRY_WELL_SM = YEModFeatures.DRY_WELL_SM.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.wells.smallDryWellSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> DRY_WELL_MD = YEModFeatures.DRY_WELL_MD.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.wells.mediumDryWellSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> DRY_WELL_LG = YEModFeatures.DRY_WELL_LG.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.wells.largeDryWellSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
     /* Wishing wells */
     public static final ConfiguredFeature<?, ?> WISHING_WELL_SM = YEModFeatures.WISHING_WELL_SM.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.wells.smallWishingWellSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> WISHING_WELL_MD = YEModFeatures.WISHING_WELL_MD.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10);
+        .chance(YEConfig.desertDecorations.wells.mediumWishingWellSpawnRate.get())
+        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> WISHING_WELL_LG = YEModFeatures.WISHING_WELL_LG.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.wells.largeWishingWellSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
     /* Obelisks */
     public static final ConfiguredFeature<?, ?> OBELISK = YEModFeatures.OBELISK.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.obelisks.normalObeliskSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> OBELISK_CREEPER = YEModFeatures.OBELISK_CREEPER.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.obelisks.creeperObeliskSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> OBELISK_RUINED = YEModFeatures.OBELISK_RUINED.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.obelisks.ruinedObeliskSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> OBELISK_RARE = YEModFeatures.OBELISK_RARE.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.obelisks.blackstoneObeliskSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
     /* Miscellaneous Desert Features */
     public static final ConfiguredFeature<?, ?> GIANT_TORCH = YEModFeatures.GIANT_TORCH.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.misc.giantTorchSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> DESERT_RUINS_0 = YEModFeatures.DESERT_RUINS_0.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.misc.smallRuinsSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
     public static final ConfiguredFeature<?, ?> CHILLZONE = YEModFeatures.CHILLZONE.get()
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
         .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(10)
+        .chance(YEConfig.desertDecorations.misc.chillzoneSpawnRate.get())
         .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
 
     public static void registerConfiguredFeatures() {

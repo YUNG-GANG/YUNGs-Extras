@@ -7,13 +7,13 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+//        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 
 // Maven info
-version = "${modMinecraftVersion}-F${modVersion}"
+version = "Forge-${modMinecraftVersion}-${modVersion}"
 group = modGroup
 archivesBaseName = modFileName
 
@@ -30,8 +30,8 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            arg "-mixin.config=" + modId + ".mixins.json"
-            property 'mixin.env.disableRefMap', 'true'
+//            arg "-mixin.config=" + modId + ".mixins.json"
+//            property 'mixin.env.disableRefMap', 'true'
 
             // Recommended logging data for a userdev environment
 //            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -48,8 +48,8 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-            arg "-mixin.config=" + modId + ".mixins.json"
-            property 'mixin.env.disableRefMap', 'true'
+//            arg "-mixin.config=" + modId + ".mixins.json"
+//            property 'mixin.env.disableRefMap', 'true'
 
             // Recommended logging data for a userdev environment
 //            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -157,7 +157,7 @@ jar {
                 "Implementation-Vendor"   : modGroup,
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
                 "Signing-Fingerprint"     : project.hasProperty('signSHA1') ? project.findProperty('signSHA1') : "unsigned",
-                "MixinConfigs": "${modId}.mixins.json"
+//                "MixinConfigs": "${modId}.mixins.json"
         ],)
     }
 }
@@ -168,8 +168,8 @@ jar.finalizedBy('reobfJar')
 // However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
 //publish.dependsOn('reobfJar')
 
-apply plugin: 'org.spongepowered.mixin'
-
-mixin {
-    add sourceSets.main, "${modId}.refmap.json"
-}
+//apply plugin: 'org.spongepowered.mixin'
+//
+//mixin {
+//    add sourceSets.main, "${modId}.refmap.json"
+//}
