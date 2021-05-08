@@ -3,6 +3,7 @@ package com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractTemplateFeature;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
@@ -42,7 +43,7 @@ public class ChillzoneDesertFeature extends AbstractTemplateFeature<NoFeatureCon
         mutable.setPos(cornerPos).move(Direction.SOUTH, 2);
         if (world.isAirBlock(mutable)) return false;
 
-        mutable.setPos(cornerPos).move(Direction.SOUTH, 3);
+        mutable.setPos(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 2);
         if (world.isAirBlock(mutable)) return false;
 
         mutable.setPos(cornerPos).move(Direction.SOUTH, 1).move(Direction.EAST, 1);
