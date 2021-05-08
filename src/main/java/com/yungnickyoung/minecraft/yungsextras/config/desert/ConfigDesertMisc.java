@@ -25,9 +25,9 @@ public class ConfigDesertMisc {
         giantTorchSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a flame outpost spawning.\n" +
-                " Default: 1000")
+                " Default: 700")
             .worldRestart()
-            .define("Flame Outpost Spawn Rate", 1000);
+            .define("Flame Outpost Spawn Rate", 700);
 
         chillzoneSpawnRate = BUILDER
             .comment(

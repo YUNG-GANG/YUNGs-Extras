@@ -24,65 +24,65 @@ public class ConfigDesertWells {
         smallNormalWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a small normal well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Normal Well Spawn Rate (Small)", 3000);
+            .define("Normal Well Spawn Rate (Small)", 1200);
 
         mediumNormalWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a medium-sized normal well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Normal Well Spawn Rate (Medium)", 3000);
+            .define("Normal Well Spawn Rate (Medium)", 1200);
 
         largeNormalWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a large normal well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Normal Well Spawn Rate (Large)", 3000);
+            .define("Normal Well Spawn Rate (Large)", 1200);
 
         smallWishingWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a small Wishing Well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Wishing Well Spawn Rate (Small)", 3000);
+            .define("Wishing Well Spawn Rate (Small)", 1200);
 
         mediumWishingWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a medium-sized Wishing Well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Wishing Well Spawn Rate (Medium)", 3000);
+            .define("Wishing Well Spawn Rate (Medium)", 1200);
 
         largeWishingWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a large Wishing Well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Wishing Well Spawn Rate (Large)", 3000);
+            .define("Wishing Well Spawn Rate (Large)", 1200);
 
         smallDryWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a small dry well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Dry Well Spawn Rate (Small)", 3000);
+            .define("Dry Well Spawn Rate (Small)", 1200);
 
         mediumDryWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a medium-sized dry well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Dry Well Spawn Rate (Medium)", 3000);
+            .define("Dry Well Spawn Rate (Medium)", 1200);
 
         largeDryWellSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a large dry well spawning.\n" +
-                " Default: 3000")
+                " Default: 1200")
             .worldRestart()
-            .define("Dry Well Spawn Rate (Large)", 3000);
+            .define("Dry Well Spawn Rate (Large)", 1200);
 
         BUILDER.pop();
     }

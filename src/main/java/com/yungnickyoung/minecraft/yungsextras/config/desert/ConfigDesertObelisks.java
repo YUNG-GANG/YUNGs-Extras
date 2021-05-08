@@ -19,16 +19,16 @@ public class ConfigDesertObelisks {
         normalObeliskSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a normal obelisk spawning.\n" +
-                " Default: 1000")
+                " Default: 700")
             .worldRestart()
-            .define("Normal Obelisk Spawn Rate", 1000);
+            .define("Normal Obelisk Spawn Rate", 700);
 
         creeperObeliskSpawnRate = BUILDER
             .comment(
                 " The spawn rate (chance per chunk) of a chiseled obelisk spawning.\n" +
-                " Default: 1500")
+                " Default: 700")
             .worldRestart()
-            .define("Chiseled Obelisk Spawn Rate", 1500);
+            .define("Chiseled Obelisk Spawn Rate", 700);
 
         ruinedObeliskSpawnRate = BUILDER
             .comment(
