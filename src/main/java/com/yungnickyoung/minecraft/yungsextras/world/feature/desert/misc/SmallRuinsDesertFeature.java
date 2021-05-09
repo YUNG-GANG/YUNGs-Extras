@@ -52,7 +52,7 @@ public class SmallRuinsDesertFeature extends AbstractTemplateFeature<NoFeatureCo
         if (world.isAirBlock(mutable)) return false;
 
         // Generate the feature
-        Template template = this.createTemplate(path, world, rand, surfacePos.offset(Direction.UP));
+        Template template = this.createTemplate(path, world, rand, surfacePos);
         return template != null;
     }
 }
