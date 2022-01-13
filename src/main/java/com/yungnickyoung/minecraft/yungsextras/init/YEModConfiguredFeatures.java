@@ -2,121 +2,189 @@ package com.yungnickyoung.minecraft.yungsextras.init;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.config.YEConfig;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import com.yungnickyoung.minecraft.yungsextras.world.placement.RngInitializerPlacement;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 public class YEModConfiguredFeatures {
     /* Normal wells */
-    public static final ConfiguredFeature<?, ?> WELL_SM = YEModFeatures.WELL_SM.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.smallNormalWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> WELL_MD = YEModFeatures.WELL_MD.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.mediumNormalWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> WELL_LG = YEModFeatures.WELL_LG.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.largeNormalWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> WELL_SM_CONFIGURED = YEModFeatures.WELL_SM.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature WELL_SM_PLACED = WELL_SM_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.smallNormalWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> WELL_MD_CONFIGURED = YEModFeatures.WELL_MD.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature WELL_MD_PLACED = WELL_MD_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.mediumNormalWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> WELL_LG_CONFIGURED = YEModFeatures.WELL_LG.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature WELL_LG_PLACED = WELL_LG_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.largeNormalWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
 
     /* Dry wells */
-    public static final ConfiguredFeature<?, ?> DRY_WELL_SM = YEModFeatures.DRY_WELL_SM.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.smallDryWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> DRY_WELL_MD = YEModFeatures.DRY_WELL_MD.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.mediumDryWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> DRY_WELL_LG = YEModFeatures.DRY_WELL_LG.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.largeDryWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> DRY_WELL_SM_CONFIGURED = YEModFeatures.DRY_WELL_SM.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature DRY_WELL_SM_PLACED = DRY_WELL_SM_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.smallDryWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> DRY_WELL_MD_CONFIGURED = YEModFeatures.DRY_WELL_MD.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature DRY_WELL_MD_PLACED = DRY_WELL_MD_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.mediumDryWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> DRY_WELL_LG_CONFIGURED = YEModFeatures.DRY_WELL_LG.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature DRY_WELL_LG_PLACED = DRY_WELL_LG_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.largeDryWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
 
     /* Wishing wells */
-    public static final ConfiguredFeature<?, ?> WISHING_WELL_SM = YEModFeatures.WISHING_WELL_SM.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.smallWishingWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> WISHING_WELL_MD = YEModFeatures.WISHING_WELL_MD.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.mediumWishingWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> WISHING_WELL_LG = YEModFeatures.WISHING_WELL_LG.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.wells.largeWishingWellSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> WISHING_WELL_SM_CONFIGURED = YEModFeatures.WISHING_WELL_SM.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature WISHING_WELL_SM_PLACED = WISHING_WELL_SM_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.smallWishingWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> WISHING_WELL_MD_CONFIGURED = YEModFeatures.WISHING_WELL_MD.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature WISHING_WELL_MD_PLACED = WISHING_WELL_MD_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.mediumWishingWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> WISHING_WELL_LG_CONFIGURED = YEModFeatures.WISHING_WELL_LG.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature WISHING_WELL_LG_PLACED = WISHING_WELL_LG_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.wells.largeWishingWellSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
 
     /* Obelisks */
-    public static final ConfiguredFeature<?, ?> OBELISK = YEModFeatures.OBELISK.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.obelisks.normalObeliskSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> OBELISK_CREEPER = YEModFeatures.OBELISK_CREEPER.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.obelisks.creeperObeliskSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> OBELISK_RUINED = YEModFeatures.OBELISK_RUINED.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.obelisks.ruinedObeliskSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> OBELISK_RARE = YEModFeatures.OBELISK_RARE.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.obelisks.blackstoneObeliskSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> OBELISK_CONFIGURED = YEModFeatures.OBELISK.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature OBELISK_PLACED = OBELISK_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.obelisks.normalObeliskSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> OBELISK_CREEPER_CONFIGURED = YEModFeatures.OBELISK_CREEPER.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature OBELISK_CREEPER_PLACED = OBELISK_CREEPER_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.obelisks.creeperObeliskSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> OBELISK_RUINED_CONFIGURED = YEModFeatures.OBELISK_RUINED.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature OBELISK_RUINED_PLACED = OBELISK_RUINED_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.obelisks.ruinedObeliskSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> OBELISK_RARE_CONFIGURED = YEModFeatures.OBELISK_RARE.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature OBELISK_RARE_PLACED = OBELISK_RARE_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.obelisks.blackstoneObeliskSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
 
     /* Miscellaneous Desert Features */
-    public static final ConfiguredFeature<?, ?> GIANT_TORCH = YEModFeatures.GIANT_TORCH.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.misc.giantTorchSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> DESERT_RUINS_0 = YEModFeatures.DESERT_RUINS_0.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.misc.smallRuinsSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
-    public static final ConfiguredFeature<?, ?> CHILLZONE = YEModFeatures.CHILLZONE.get()
-        .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-        .chance(YEConfig.desertDecorations.misc.chillzoneSpawnRate.get())
-        .withPlacement(YEModConfiguredPlacements.RNG_INITIALIZER);
+    public static final ConfiguredFeature<?, ?> GIANT_TORCH_CONFIGURED = YEModFeatures.GIANT_TORCH.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature GIANT_TORCH_PLACED = GIANT_TORCH_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.misc.giantTorchSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> DESERT_RUINS_0_CONFIGURED = YEModFeatures.DESERT_RUINS_0.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature DESERT_RUINS_0_PLACED = DESERT_RUINS_0_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.misc.smallRuinsSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> CHILLZONE_CONFIGURED = YEModFeatures.CHILLZONE.get().configured(FeatureConfiguration.NONE);
+    public static final PlacedFeature CHILLZONE_PLACED = CHILLZONE_CONFIGURED.placed(
+            RarityFilter.onAverageOnceEvery(YEConfig.desertDecorations.misc.chillzoneSpawnRate.get()),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
 
     public static void registerConfiguredFeatures() {
-        Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_sm"), WELL_SM);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_md"), WELL_MD);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_lg"), WELL_LG);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_sm"), DRY_WELL_SM);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_md"), DRY_WELL_MD);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_lg"), DRY_WELL_LG);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_sm"), WISHING_WELL_SM);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_md"), WISHING_WELL_MD);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_lg"), WISHING_WELL_LG);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk"), OBELISK);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_creeper"), OBELISK_CREEPER);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_ruined"), OBELISK_RUINED);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_rare"), OBELISK_RARE);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_giant_torch"), GIANT_TORCH);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_ruins_0"), DESERT_RUINS_0);
-        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_chillzone"), CHILLZONE);
+        Registry<ConfiguredFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_FEATURE;
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_sm"), WELL_SM_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_md"), WELL_MD_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_lg"), WELL_LG_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_sm"), DRY_WELL_SM_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_md"), DRY_WELL_MD_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_lg"), DRY_WELL_LG_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_sm"), WISHING_WELL_SM_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_md"), WISHING_WELL_MD_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_lg"), WISHING_WELL_LG_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk"), OBELISK_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_creeper"), OBELISK_CREEPER_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_ruined"), OBELISK_RUINED_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_rare"), OBELISK_RARE_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_giant_torch"), GIANT_TORCH_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_ruins_0"), DESERT_RUINS_0_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_chillzone"), CHILLZONE_CONFIGURED);
+    }
+
+    public static void registerPlacedFeatures() {
+        Registry<PlacedFeature> registry = BuiltinRegistries.PLACED_FEATURE;
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_sm"), WELL_SM_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_md"), WELL_MD_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_lg"), WELL_LG_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_sm"), DRY_WELL_SM_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_md"), DRY_WELL_MD_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_dry_well_lg"), DRY_WELL_LG_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_sm"), WISHING_WELL_SM_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_md"), WISHING_WELL_MD_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_wishing_well_lg"), WISHING_WELL_LG_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk"), OBELISK_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_creeper"), OBELISK_CREEPER_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_ruined"), OBELISK_RUINED_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_obelisk_rare"), OBELISK_RARE_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_giant_torch"), GIANT_TORCH_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_ruins_0"), DESERT_RUINS_0_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_chillzone"), CHILLZONE_PLACED);
     }
 }

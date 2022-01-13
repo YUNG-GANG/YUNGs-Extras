@@ -4,6 +4,10 @@ import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.ChillzoneDesertFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.GiantDesertTorchFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.SmallRuinsDesertFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk.CreeperDesertObeliskFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk.DesertObeliskFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk.RareDesertObeliskFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk.RuinedDesertObeliskFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.dry.LargeDesertDryWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.dry.MedDesertDryWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.dry.SmallDesertDryWellFeature;
@@ -13,21 +17,18 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.normal.
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.LargeDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.MedDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.SmallDesertWishingWellFeature;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk.CreeperDesertObeliskFeature;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk.DesertObeliskFeature;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk.RareDesertObeliskFeature;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk.RuinedDesertObeliskFeature;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
@@ -37,30 +38,30 @@ public class YEModFeatures {
 
     /* Desert Features */
     /* Normal wells */
-    public static final RegistryObject<Feature<NoFeatureConfig>> WELL_SM = register("desert_well_sm", SmallDesertWellFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> WELL_MD = register("desert_well_md", MedDesertWellFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> WELL_LG = register("desert_well_lg", LargeDesertWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> WELL_SM = register("desert_well_sm", SmallDesertWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> WELL_MD = register("desert_well_md", MedDesertWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> WELL_LG = register("desert_well_lg", LargeDesertWellFeature::new);
 
     /* Dry wells */
-    public static final RegistryObject<Feature<NoFeatureConfig>> DRY_WELL_SM = register("desert_dry_well_sm", SmallDesertDryWellFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> DRY_WELL_MD = register("desert_dry_well_md", MedDesertDryWellFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> DRY_WELL_LG = register("desert_dry_well_lg", LargeDesertDryWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> DRY_WELL_SM = register("desert_dry_well_sm", SmallDesertDryWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> DRY_WELL_MD = register("desert_dry_well_md", MedDesertDryWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> DRY_WELL_LG = register("desert_dry_well_lg", LargeDesertDryWellFeature::new);
 
     /* Wishing wells */
-    public static final RegistryObject<Feature<NoFeatureConfig>> WISHING_WELL_SM = register("desert_wishing_well_sm", SmallDesertWishingWellFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> WISHING_WELL_MD = register("desert_wishing_well_md", MedDesertWishingWellFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> WISHING_WELL_LG = register("desert_wishing_well_lg", LargeDesertWishingWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> WISHING_WELL_SM = register("desert_wishing_well_sm", SmallDesertWishingWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> WISHING_WELL_MD = register("desert_wishing_well_md", MedDesertWishingWellFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> WISHING_WELL_LG = register("desert_wishing_well_lg", LargeDesertWishingWellFeature::new);
 
     /* Obelisks */
-    public static final RegistryObject<Feature<NoFeatureConfig>> OBELISK = register("desert_obelisk", DesertObeliskFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> OBELISK_CREEPER = register("desert_obelisk_creeper", CreeperDesertObeliskFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> OBELISK_RUINED = register("desert_obelisk_ruined", RuinedDesertObeliskFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> OBELISK_RARE = register("desert_obelisk_rare", RareDesertObeliskFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> OBELISK = register("desert_obelisk", DesertObeliskFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> OBELISK_CREEPER = register("desert_obelisk_creeper", CreeperDesertObeliskFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> OBELISK_RUINED = register("desert_obelisk_ruined", RuinedDesertObeliskFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> OBELISK_RARE = register("desert_obelisk_rare", RareDesertObeliskFeature::new);
 
     /* Miscellaneous Desert Features */
-    public static final RegistryObject<Feature<NoFeatureConfig>> GIANT_TORCH = register("desert_giant_torch", GiantDesertTorchFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> DESERT_RUINS_0 = register("desert_ruins_0", SmallRuinsDesertFeature::new);
-    public static final RegistryObject<Feature<NoFeatureConfig>> CHILLZONE = register("desert_chillzone", ChillzoneDesertFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> GIANT_TORCH = register("desert_giant_torch", GiantDesertTorchFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> DESERT_RUINS_0 = register("desert_ruins_0", SmallRuinsDesertFeature::new);
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> CHILLZONE = register("desert_chillzone", ChillzoneDesertFeature::new);
 
     public static void init () {
         FEATURES.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -72,7 +73,10 @@ public class YEModFeatures {
      * Set up features.
      */
     private static void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(YEModConfiguredFeatures::registerConfiguredFeatures);
+        event.enqueueWork(() -> {
+            YEModConfiguredFeatures.registerConfiguredFeatures();
+            YEModConfiguredFeatures.registerPlacedFeatures();
+        });
     }
 
     /**
@@ -82,27 +86,27 @@ public class YEModFeatures {
         // Ignore blacklisted biomes
         if (YungsExtras.blacklistedBiomes.contains(event.getName().toString())) return;
 
-        if (event.getCategory() == Biome.Category.DESERT || YungsExtras.additionalWhitelistedBiomes.contains(event.getName().toString())) {
+        if (event.getCategory() == Biome.BiomeCategory.DESERT || YungsExtras.additionalWhitelistedBiomes.contains(event.getName().toString())) {
             // Remove vanilla desert wells from biome generation settings.
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).removeIf(supplier -> supplier.get().feature == Feature.DESERT_WELL);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).removeIf(supplier -> supplier.get().toString().equals(MiscOverworldPlacements.DESERT_WELL.toString()));
 
-            // Add wells to biome generation settings for proper biomes
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_SM);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_MD);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_LG);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_SM);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_MD);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_LG);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_SM);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_MD);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_LG);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_CREEPER);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_RARE);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_RUINED);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.GIANT_TORCH);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DESERT_RUINS_0);
-            event.getGeneration().getFeatures(GenerationStage.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.CHILLZONE);
+            // Add structures to biome generation settings for proper biomes
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_SM_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_MD_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_LG_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_SM_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_MD_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_LG_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_SM_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_MD_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_LG_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_CREEPER_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_RARE_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_RUINED_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.GIANT_TORCH_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DESERT_RUINS_0_PLACED);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.CHILLZONE_PLACED);
         }
     }
 

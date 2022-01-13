@@ -1,28 +1,33 @@
 modLoader="javafml" #mandatory
-loaderVersion="[35,)"
+loaderVersion="[39,)"
 license="LGPLv3"
 issueTrackerURL="https://github.com/yungnickyoung/YUNGs-Extras/issues"
 
 [[mods]]
-modId="${modId}"
-version="${version}"
-displayName="${modName}"
-credits="${modCredits}"
-authors="${modAuthor}"
-description="${modDescription}"
-logoFile="logo.png"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/yungs-extras"
+    modId="yungsextras"
+    version="${file.jarVersion}"
+	displayName="YUNG's Extras"
+    credits="Thanks so much to all my patrons!"
+    authors="YUNGNICKYOUNG, Acarii"
+    description="Extra structures and vanilla+ content added throughout the game"
+    logoFile="logo.png"
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/yungs-extras"
 
 [[dependencies.yungsextras]]
-modId="forge"
-mandatory=true
-versionRange="[35,)"
-ordering="NONE"
-side="SERVER"
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.1,1.19)"
 
 [[dependencies.yungsextras]]
-modId="yungsapi"
-versionRange="[1.16.4-Forge-6,)"
-mandatory=true
-ordering="NONE"
-side="BOTH"
+    modId="forge"
+    mandatory=true
+    versionRange="[39.0.0,)"
+    ordering="NONE"
+    side="SERVER"
+
+[[dependencies.yungsextras]]
+    modId="yungsapi"
+    versionRange="[1.18.1-Forge-23,)"
+    mandatory=true
+    ordering="NONE"
+    side="BOTH"

@@ -1,8 +1,8 @@
 package com.yungnickyoung.minecraft.yungsextras.world;
 
 import com.yungnickyoung.minecraft.yungsapi.world.BlockSetSelector;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Random;
 
@@ -24,10 +24,10 @@ public class WishingWellChances {
     }
 
     private WishingWellChances() {
-        lootBlockChances = new BlockSetSelector(Blocks.SANDSTONE.getDefaultState())
-            .addBlock(Blocks.GOLD_ORE.getDefaultState(), .5f)
-            .addBlock(Blocks.EMERALD_ORE.getDefaultState(), .05f)
-            .addBlock(Blocks.GOLD_BLOCK.getDefaultState(), .01f);
+        lootBlockChances = new BlockSetSelector(Blocks.SANDSTONE.defaultBlockState())
+            .addBlock(Blocks.GOLD_ORE.defaultBlockState(), .5f)
+            .addBlock(Blocks.EMERALD_ORE.defaultBlockState(), .05f)
+            .addBlock(Blocks.GOLD_BLOCK.defaultBlockState(), .01f);
     }
 
     /** Instance variables and methods **/

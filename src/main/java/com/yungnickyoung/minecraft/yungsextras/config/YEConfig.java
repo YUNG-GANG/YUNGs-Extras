@@ -10,7 +10,7 @@ public class YEConfig {
     public static final ConfigDesertDecorations desertDecorations;
 
     static {
-        BUILDER.push("YUNG's Better Strongholds");
+        BUILDER.push("YUNG's Extras");
 
         desertDecorations = new ConfigDesertDecorations(BUILDER);
 

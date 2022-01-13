@@ -12,26 +12,29 @@ public class ConfigDesertMisc {
             .comment(
                 "##########################################################################################################\n" +
                 "# Settings for miscellaneous desert structures.\n" +
+                "# \n" +
+                "# The chance of each structure spawning in a given chunk is 1 / N, where N is the config value set below for that structure.\n" +
+                "# For example, if the value is 1000 then there is a 1 in 1000 chance of spawning, per chunk.\n" +
                 "##########################################################################################################")
             .push("Desert Miscellaneous");
 
         smallRuinsSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a small ruins spawning.\n" +
+                " Determines the spawn rate of small ruins.\n" +
                 " Default: 1000")
             .worldRestart()
             .define("Ruins Spawn Rate (Small)", 1000);
 
         giantTorchSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a flame outpost spawning.\n" +
+                " Determines the spawn rate of flame outposts.\n" +
                 " Default: 700")
             .worldRestart()
             .define("Flame Outpost Spawn Rate", 700);
 
         chillzoneSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of an abandoned vacation spot spawning.\n" +
+                " Determines the spawn rate of abandoned vacation spots.\n" +
                 " Default: 1000")
             .worldRestart()
             .define("Abandoned Vacation Spot Spawn Rate", 1000);

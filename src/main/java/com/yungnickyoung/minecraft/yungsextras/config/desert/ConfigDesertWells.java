@@ -18,68 +18,71 @@ public class ConfigDesertWells {
             .comment(
                 "##########################################################################################################\n" +
                 "# Settings for the different Desert Well variations.\n" +
+                "# \n" +
+                "# The chance of each type of well spawning in a given chunk is 1 / N, where N is the config value set below for that well.\n" +
+                "# For example, if the value is 1000 then there is a 1 in 1000 chance of spawning, per chunk.\n" +
                 "##########################################################################################################")
             .push("Desert Wells");
 
         smallNormalWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a small normal well spawning.\n" +
+                " Determines the spawn rate of small normal wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Normal Well Spawn Rate (Small)", 1200);
 
         mediumNormalWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a medium-sized normal well spawning.\n" +
+                " Determines the spawn rate of medium-sized normal wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Normal Well Spawn Rate (Medium)", 1200);
 
         largeNormalWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a large normal well spawning.\n" +
+                " Determines the spawn rate of large normal wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Normal Well Spawn Rate (Large)", 1200);
 
         smallWishingWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a small Wishing Well spawning.\n" +
+                " Determines the spawn rate of small Wishing Wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Wishing Well Spawn Rate (Small)", 1200);
 
         mediumWishingWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a medium-sized Wishing Well spawning.\n" +
+                " Determines the spawn rate of medium-sized Wishing Wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Wishing Well Spawn Rate (Medium)", 1200);
 
         largeWishingWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a large Wishing Well spawning.\n" +
+                " Determines the spawn rate of large Wishing Wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Wishing Well Spawn Rate (Large)", 1200);
 
         smallDryWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a small dry well spawning.\n" +
+                " Determines the spawn rate of small dry wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Dry Well Spawn Rate (Small)", 1200);
 
         mediumDryWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a medium-sized dry well spawning.\n" +
+                " Determines the spawn rate of medium-sized dry wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Dry Well Spawn Rate (Medium)", 1200);
 
         largeDryWellSpawnRate = BUILDER
             .comment(
-                " The spawn rate (chance per chunk) of a large dry well spawning.\n" +
+                " Determines the spawn rate of large dry wells.\n" +
                 " Default: 1200")
             .worldRestart()
             .define("Dry Well Spawn Rate (Large)", 1200);

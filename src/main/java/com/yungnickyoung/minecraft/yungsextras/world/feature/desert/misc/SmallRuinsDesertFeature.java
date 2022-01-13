@@ -2,57 +2,61 @@ package com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractTemplateFeature;
-import net.minecraft.block.Block;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class SmallRuinsDesertFeature extends AbstractTemplateFeature<NoFeatureConfig> {
+public class SmallRuinsDesertFeature extends AbstractTemplateFeature<NoneFeatureConfiguration> {
     private static final ResourceLocation path = new ResourceLocation(YungsExtras.MOD_ID, "desert/misc/ruins_0");
 
     public SmallRuinsDesertFeature() {
-        super(NoFeatureConfig.field_236558_a_);
+        super(NoneFeatureConfiguration.CODEC);
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+        WorldGenLevel level = context.level();
+        Random rand = context.random();
+        BlockPos pos = context.origin();
+
         // Find the surface
-        BlockPos.Mutable mutable = pos.toMutable();
-        while (world.isAirBlock(mutable) && mutable.getY() > 2) {
+        BlockPos.MutableBlockPos mutable = pos.mutable();
+        while (level.isEmptyBlock(mutable) && mutable.getY() > 2) {
             mutable.move(Direction.DOWN);
         }
 
-        BlockPos surfacePos = mutable.toImmutable();
-        BlockPos cornerPos = surfacePos.add(-2, 0, -2);
-        Block block = world.getBlockState(surfacePos).getBlock();
+        BlockPos surfacePos = mutable.immutable();
+        BlockPos cornerPos = surfacePos.offset(-2, 0, -2);
+        Block block = level.getBlockState(surfacePos).getBlock();
 
         // Ensure valid position
         if (!BlockTags.SAND.contains(block)) return false;
 
         // Check to avoid bits of the feature floating
-        mutable.setPos(cornerPos);
-        if (world.isAirBlock(mutable)) return false;
+        mutable.set(cornerPos);
+        if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.setPos(cornerPos).move(Direction.SOUTH, 3);
-        if (world.isAirBlock(mutable)) return false;
+        mutable.set(cornerPos).move(Direction.SOUTH, 3);
+        if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.setPos(cornerPos).move(Direction.EAST, 3);
-        if (world.isAirBlock(mutable)) return false;
+        mutable.set(cornerPos).move(Direction.EAST, 3);
+        if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.setPos(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3);
-        if (world.isAirBlock(mutable)) return false;
+        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3);
+        if (level.isEmptyBlock(mutable)) return false;
 
         // Generate the feature
-        Template template = this.createTemplate(path, world, rand, surfacePos);
+        StructureTemplate template = this.createTemplate(path, level, rand, surfacePos);
         return template != null;
     }
 }
