@@ -16,10 +16,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-@ParametersAreNonnullByDefault
 public abstract class AbstractDesertWellFeature extends AbstractTemplateFeature<NoneFeatureConfiguration> {
     private static final String path = "desert/wells/";
     private final int radius;

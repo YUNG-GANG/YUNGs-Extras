@@ -1,75 +1,26 @@
 package com.yungnickyoung.minecraft.yungsextras.init;
 
-import com.google.common.collect.Lists;
 import com.yungnickyoung.minecraft.yungsapi.io.JSON;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.config.YEConfig;
 import com.yungnickyoung.minecraft.yungsextras.config.YESettings;
 import com.yungnickyoung.minecraft.yungsextras.world.WishingWellChances;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.WorldEvent;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
+import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class YEModConfig {
     public static void init() {
         initCustomFiles();
-        // Register mod config with Forge
-        ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, YEConfig.SPEC, "YungsExtras-forge-1_18.toml");
-        // Refresh JSON config on world load so that user doesn't have to restart MC
-        MinecraftForge.EVENT_BUS.addListener(YEModConfig::onWorldLoad);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(YEModConfig::configChanged);
-    }
-
-    private static void onWorldLoad(WorldEvent.Load event) {
-        loadJSON();
-    }
-
-    /**
-     * Parses the additioanl whitelisted biomes & blacklisted biomes strings and updates the stored values.
-     */
-    public static void configChanged(ModConfigEvent event) {
-        ModConfig config = event.getConfig();
-
-        if (config.getSpec() == YEConfig.SPEC) {
-            // Additional biome whitelisting
-            String rawStringofList = YEConfig.desertDecorations.additionalBiomeWhitelist.get();
-            int strLen = rawStringofList.length();
-
-            // Validate the string's format
-            if (strLen < 2 || rawStringofList.charAt(0) != '[' || rawStringofList.charAt(strLen - 1) != ']') {
-                YungsExtras.LOGGER.error("INVALID VALUE FOR SETTING 'Additional Whitelisted Biomes'. Using empty list instead...");
-                YungsExtras.additionalWhitelistedBiomes = new ArrayList<>();
-                return;
-            }
-
-            // Parse string to list
-            YungsExtras.additionalWhitelistedBiomes = Lists.newArrayList(rawStringofList.substring(1, strLen - 1).split(",\\s*"));
-
-            // Biome blacklisting
-            rawStringofList = YEConfig.desertDecorations.biomeBlacklist.get();
-            strLen = rawStringofList.length();
-
-            // Validate the string's format
-            if (strLen < 2 || rawStringofList.charAt(0) != '[' || rawStringofList.charAt(strLen - 1) != ']') {
-                YungsExtras.LOGGER.error("INVALID VALUE FOR SETTING 'Blacklisted Biomes'. Using empty list instead...");
-                YungsExtras.blacklistedBiomes = new ArrayList<>();
-                return;
-            }
-
-            // Parse string to list
-            YungsExtras.blacklistedBiomes = Lists.newArrayList(rawStringofList.substring(1, strLen - 1).split(",\\s*"));
-        }
+        // Register mod config with AutoConfig
+        AutoConfig.register(YEConfig.class, Toml4jConfigSerializer::new);
+        YungsExtras.CONFIG = AutoConfig.getConfigHolder(YEConfig.class).getConfig();
     }
 
     private static void initCustomFiles() {
@@ -84,7 +35,7 @@ public class YEModConfig {
     }
 
     private static void createDirectory() {
-        File parentDir = new File(FMLPaths.CONFIGDIR.get().toString(), YESettings.CUSTOM_CONFIG_PATH);
+        File parentDir = new File(FabricLoader.getInstance().getConfigDir().toString(), YESettings.CUSTOM_CONFIG_PATH);
         File customConfigDir = new File(parentDir, YESettings.VERSION_PATH);
         try {
             String filePath = customConfigDir.getCanonicalPath();
@@ -97,7 +48,7 @@ public class YEModConfig {
     }
 
     private static void createBaseReadMe() {
-        Path path = Paths.get(FMLPaths.CONFIGDIR.get().toString(), YESettings.CUSTOM_CONFIG_PATH, "README.txt");
+        Path path = Paths.get(FabricLoader.getInstance().getConfigDir().toString(), YESettings.CUSTOM_CONFIG_PATH, "README.txt");
         File readme = new File(path.toString());
         if (!readme.exists()) {
             String readmeText =
@@ -119,7 +70,7 @@ public class YEModConfig {
     }
 
     private static void createJsonReadMe() {
-        Path path = Paths.get(FMLPaths.CONFIGDIR.get().toString(), YESettings.CUSTOM_CONFIG_PATH, YESettings.VERSION_PATH, "README.txt");
+        Path path = Paths.get(FabricLoader.getInstance().getConfigDir().toString(), YESettings.CUSTOM_CONFIG_PATH, YESettings.VERSION_PATH, "README.txt");
         File readme = new File(path.toString());
         if (!readme.exists()) {
             String readmeText =
@@ -167,7 +118,7 @@ public class YEModConfig {
      * Otherwise, it creates a default JSON and from the default options in WishingWellChances.
      */
     private static void loadWishingWellsJSON() {
-        Path jsonPath = Paths.get(FMLPaths.CONFIGDIR.get().toString(), YESettings.CUSTOM_CONFIG_PATH, YESettings.VERSION_PATH, "wishing_wells.json");
+        Path jsonPath = Paths.get(FabricLoader.getInstance().getConfigDir().toString(), YESettings.CUSTOM_CONFIG_PATH, YESettings.VERSION_PATH, "wishing_wells.json");
         File jsonFile = new File(jsonPath.toString());
 
         if (!jsonFile.exists()) {

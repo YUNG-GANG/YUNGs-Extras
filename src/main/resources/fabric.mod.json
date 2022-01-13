@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "yungsextras",
+  "version": "${version}",
+  "name": "YUNG's Extras",
+  "description": "Extra structures and vanilla+ content added throughout the game",
+  "authors": [
+    "YUNGNICKYOUNG",
+    "Acarii"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/yungs-extras-fabric",
+    "sources": "https://github.com/yungnickyoung/YUNGs-Extras",
+    "issues": "https://github.com/yungnickyoung/YUNGs-Extras/issues",
+    "discord": "discord.gg/rns3beq"
+  },
+  "license": "LGPLv3",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.yungnickyoung.minecraft.yungsextras.YungsExtras"
+    ],
+    "modmenu": [
+      "com.yungnickyoung.minecraft.yungsextras.config.gui.YEModMenu"
+    ]
+  },
+  "mixins": [
+    "yungsextras.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.0",
+    "fabric": ">=0.43.1",
+    "minecraft": ">=1.18",
+    "cloth-config2": ">=6.0.42",
+    "java": ">=17",
+    "yungsapi": ">=1.18-Fabric-35"
+  }
+}

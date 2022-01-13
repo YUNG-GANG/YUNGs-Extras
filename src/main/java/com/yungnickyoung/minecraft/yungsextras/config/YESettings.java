@@ -6,7 +6,7 @@ package com.yungnickyoung.minecraft.yungsextras.config;
  */
 public class YESettings {
     public static final String CUSTOM_CONFIG_PATH = "YungsExtras";
-    public static final String VERSION_PATH = "forge-1_18";
+    public static final String VERSION_PATH = "fabric-1_18";
 
     private YESettings() {} // Private constructor prevents instantiation
 }

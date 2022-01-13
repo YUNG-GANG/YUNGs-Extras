@@ -12,10 +12,8 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-@ParametersAreNonnullByDefault
 public class GiantDesertTorchFeature extends AbstractTemplateFeature<NoneFeatureConfiguration> {
     private static final ResourceLocation path = new ResourceLocation(YungsExtras.MOD_ID, "desert/misc/giant_torch");
 
