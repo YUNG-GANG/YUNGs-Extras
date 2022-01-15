@@ -1,6 +1,7 @@
 package com.yungnickyoung.minecraft.yungsextras.init;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
+import com.yungnickyoung.minecraft.yungsextras.world.config.StructurePathConfig;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.ChillzoneDesertFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.GiantDesertTorchFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.SmallRuinsDesertFeature;
@@ -17,6 +18,7 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.normal.
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.LargeDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.MedDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.SmallDesertWishingWellFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.pillar.SwampPillarFeature;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -63,6 +65,10 @@ public class YEModFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> DESERT_RUINS_0 = register("desert_ruins_0", SmallRuinsDesertFeature::new);
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> CHILLZONE = register("desert_chillzone", ChillzoneDesertFeature::new);
 
+    /* Swamp Features */
+    /* Pillars */
+    public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_PILLAR = register("swamp_pillar", SwampPillarFeature::new);
+
     public static void init () {
         FEATURES.register(FMLJavaModLoadingContext.get().getModEventBus());
         FMLJavaModLoadingContext.get().getModEventBus().addListener(YEModFeatures::commonSetup);
@@ -86,6 +92,7 @@ public class YEModFeatures {
         // Ignore blacklisted biomes
         if (YungsExtras.blacklistedBiomes.contains(event.getName().toString())) return;
 
+        // Desert decorations
         if (event.getCategory() == Biome.BiomeCategory.DESERT || YungsExtras.additionalWhitelistedBiomes.contains(event.getName().toString())) {
             // Remove vanilla desert wells from biome generation settings.
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).removeIf(supplier -> supplier.get().toString().equals(MiscOverworldPlacements.DESERT_WELL.toString()));
@@ -107,6 +114,13 @@ public class YEModFeatures {
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.GIANT_TORCH_PLACED);
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DESERT_RUINS_0_PLACED);
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.CHILLZONE_PLACED);
+        }
+
+        // Swamp decorations
+        if (event.getCategory() == Biome.BiomeCategory.SWAMP) {
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.SWAMP_PILLAR_PLACED_0);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.SWAMP_PILLAR_PLACED_1);
+            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.SWAMP_PILLAR_PLACED_2);
         }
     }
 

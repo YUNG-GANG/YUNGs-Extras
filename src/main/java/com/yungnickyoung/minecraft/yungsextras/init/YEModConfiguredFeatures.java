@@ -2,6 +2,7 @@ package com.yungnickyoung.minecraft.yungsextras.init;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.config.YEConfig;
+import com.yungnickyoung.minecraft.yungsextras.world.config.StructurePathConfig;
 import com.yungnickyoung.minecraft.yungsextras.world.placement.RngInitializerPlacement;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 public class YEModConfiguredFeatures {
+    /* Desert features */
     /* Normal wells */
     public static final ConfiguredFeature<?, ?> WELL_SM_CONFIGURED = YEModFeatures.WELL_SM.get().configured(FeatureConfiguration.NONE);
     public static final PlacedFeature WELL_SM_PLACED = WELL_SM_CONFIGURED.placed(
@@ -148,6 +150,36 @@ public class YEModConfiguredFeatures {
             BiomeFilter.biome(),
             RngInitializerPlacement.randomize());
 
+    /* Swamp features */
+    /* Swamp pillars */
+    public static final ConfiguredFeature<?, ?> SWAMP_PILLAR_CONFIGURED_0 = YEModFeatures.SWAMP_PILLAR.get()
+            .configured(new StructurePathConfig("swamp/pillar/swamp_pillar_0"));
+    public static final PlacedFeature SWAMP_PILLAR_PLACED_0 = SWAMP_PILLAR_CONFIGURED_0.placed(
+            RarityFilter.onAverageOnceEvery(100),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> SWAMP_PILLAR_CONFIGURED_1 = YEModFeatures.SWAMP_PILLAR.get()
+            .configured(new StructurePathConfig("swamp/pillar/swamp_pillar_1"));
+    public static final PlacedFeature SWAMP_PILLAR_PLACED_1 = SWAMP_PILLAR_CONFIGURED_1.placed(
+            RarityFilter.onAverageOnceEvery(100),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+    public static final ConfiguredFeature<?, ?> SWAMP_PILLAR_CONFIGURED_2 = YEModFeatures.SWAMP_PILLAR.get()
+            .configured(new StructurePathConfig("swamp/pillar/swamp_pillar_2"));
+    public static final PlacedFeature SWAMP_PILLAR_PLACED_2 = SWAMP_PILLAR_CONFIGURED_2.placed(
+            RarityFilter.onAverageOnceEvery(100),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome(),
+            RngInitializerPlacement.randomize());
+
+
     public static void registerConfiguredFeatures() {
         Registry<ConfiguredFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_FEATURE;
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_well_sm"), WELL_SM_CONFIGURED);
@@ -166,6 +198,9 @@ public class YEModConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_giant_torch"), GIANT_TORCH_CONFIGURED);
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_ruins_0"), DESERT_RUINS_0_CONFIGURED);
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_chillzone"), CHILLZONE_CONFIGURED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "swamp_pillar_0"), SWAMP_PILLAR_CONFIGURED_0);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "swamp_pillar_1"), SWAMP_PILLAR_CONFIGURED_1);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "swamp_pillar_2"), SWAMP_PILLAR_CONFIGURED_2);
     }
 
     public static void registerPlacedFeatures() {
@@ -186,5 +221,8 @@ public class YEModConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_giant_torch"), GIANT_TORCH_PLACED);
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_ruins_0"), DESERT_RUINS_0_PLACED);
         Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "desert_chillzone"), CHILLZONE_PLACED);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "swamp_pillar_0"), SWAMP_PILLAR_PLACED_0);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "swamp_pillar_1"), SWAMP_PILLAR_PLACED_1);
+        Registry.register(registry, new ResourceLocation(YungsExtras.MOD_ID, "swamp_pillar_2"), SWAMP_PILLAR_PLACED_2);
     }
 }
