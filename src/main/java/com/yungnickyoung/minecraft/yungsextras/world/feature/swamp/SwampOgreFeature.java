@@ -1,8 +1,7 @@
-package com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.pillar;
+package com.yungnickyoung.minecraft.yungsextras.world.feature.swamp;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.world.config.StructurePathConfig;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.AbstractSwampFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -10,12 +9,10 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-@ParametersAreNonnullByDefault
-public class SwampPillarFeature extends AbstractSwampFeature<StructurePathConfig> {
-    public SwampPillarFeature() {
+public class SwampOgreFeature extends AbstractSwampFeature<StructurePathConfig> {
+    public SwampOgreFeature() {
         super(StructurePathConfig.CODEC);
     }
 
@@ -35,16 +32,16 @@ public class SwampPillarFeature extends AbstractSwampFeature<StructurePathConfig
         BlockPos cornerPos = surfacePos.offset(-2, 0, -2);
 
         // Obelisk can only extend max 3 down
-        mutable.set(cornerPos).move(Direction.DOWN, 4);
+        mutable.set(cornerPos);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.DOWN, 4);
+        mutable.set(cornerPos).move(Direction.SOUTH, 3);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.EAST, 3).move(Direction.DOWN, 4);
+        mutable.set(cornerPos).move(Direction.EAST, 3);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3).move(Direction.DOWN, 4);
+        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3);
         if (level.isEmptyBlock(mutable)) return false;
 
         // Generate the obelisk

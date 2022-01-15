@@ -18,12 +18,14 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.normal.
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.LargeDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.MedDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.SmallDesertWishingWellFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.SwampOgreFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.pillar.SwampPillarFeature;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -66,8 +68,8 @@ public class YEModFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> CHILLZONE = register("desert_chillzone", ChillzoneDesertFeature::new);
 
     /* Swamp Features */
-    /* Pillars */
     public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_PILLAR = register("swamp_pillar", SwampPillarFeature::new);
+    public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_OGRE = register("swamp_ogre", SwampOgreFeature::new);
 
     public static void init () {
         FEATURES.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -97,30 +99,18 @@ public class YEModFeatures {
             // Remove vanilla desert wells from biome generation settings.
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).removeIf(supplier -> supplier.get().toString().equals(MiscOverworldPlacements.DESERT_WELL.toString()));
 
-            // Add structures to biome generation settings for proper biomes
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_SM_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_MD_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WELL_LG_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_SM_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_MD_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DRY_WELL_LG_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_SM_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_MD_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.WISHING_WELL_LG_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_CREEPER_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_RARE_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.OBELISK_RUINED_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.GIANT_TORCH_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.DESERT_RUINS_0_PLACED);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.CHILLZONE_PLACED);
+            YEModConfiguredFeatures.NAMED_PLACED_FEATURES_BY_BIOME.get(Biome.BiomeCategory.DESERT).forEach(namedPlacedFeature -> {
+                PlacedFeature placedFeature = namedPlacedFeature.placedFeature();
+                event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> placedFeature);
+            });
         }
 
         // Swamp decorations
         if (event.getCategory() == Biome.BiomeCategory.SWAMP) {
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.SWAMP_PILLAR_PLACED_0);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.SWAMP_PILLAR_PLACED_1);
-            event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> YEModConfiguredFeatures.SWAMP_PILLAR_PLACED_2);
+            YEModConfiguredFeatures.NAMED_PLACED_FEATURES_BY_BIOME.get(Biome.BiomeCategory.SWAMP).forEach(namedPlacedFeature -> {
+                PlacedFeature placedFeature = namedPlacedFeature.placedFeature();
+                event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES).add(() -> placedFeature);
+            });
         }
     }
 
