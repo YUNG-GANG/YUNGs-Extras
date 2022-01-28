@@ -2,6 +2,7 @@ package com.yungnickyoung.minecraft.yungsextras.world.feature.swamp;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.world.config.StructurePathConfig;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.AbstractSwampFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -9,10 +10,12 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-public class SwampOgreFeature extends AbstractSwampFeature<StructurePathConfig> {
-    public SwampOgreFeature() {
+@ParametersAreNonnullByDefault
+public class SwampPillarFeature extends AbstractSwampFeature<StructurePathConfig> {
+    public SwampPillarFeature() {
         super(StructurePathConfig.CODEC);
     }
 
@@ -32,16 +35,16 @@ public class SwampOgreFeature extends AbstractSwampFeature<StructurePathConfig> 
         BlockPos cornerPos = surfacePos.offset(-2, 0, -2);
 
         // Can only extend max 3 down
-        mutable.set(cornerPos);
+        mutable.set(cornerPos).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3);
+        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.EAST, 3);
+        mutable.set(cornerPos).move(Direction.EAST, 3).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3);
+        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
         // Generate

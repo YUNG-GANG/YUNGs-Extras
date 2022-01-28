@@ -122,7 +122,7 @@ public class YEModConfiguredFeatures {
             PlacementUtils.HEIGHTMAP,
             BiomeFilter.biome(),
             RngInitializerPlacement.randomize()),
-            "desert_wishing_well_sm",
+            "desert_wishing_well_md",
             Biome.BiomeCategory.DESERT);
 
     public static final NamedConfiguredFeature WISHING_WELL_LG_CONFIGURED = addConfiguredFeature(YEModFeatures.WISHING_WELL_LG.get()
@@ -216,9 +216,10 @@ public class YEModConfiguredFeatures {
             Biome.BiomeCategory.DESERT);
 
     /* Swamp features */
-    public static final NamedConfiguredFeature SWAMP_PILLAR_CONFIGURED_0 = addConfiguredFeature(YEModFeatures.SWAMP_PILLAR.get()
+    /* Pillars */
+    public static final NamedConfiguredFeature SWAMP_PILLAR_0_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_PILLAR.get()
             .configured(new StructurePathConfig("swamp/pillar/swamp_pillar_0")), "swamp_pillar_0");
-    public static final NamedPlacedFeature SWAMP_PILLAR_PLACED_0 = addPlacedFeature(SWAMP_PILLAR_CONFIGURED_0.configuredFeature().placed(
+    public static final NamedPlacedFeature SWAMP_PILLAR_PLACED_0 = addPlacedFeature(SWAMP_PILLAR_0_CONFIGURED.configuredFeature().placed(
             RarityFilter.onAverageOnceEvery(YEConfig.swamp.pillarSpawnRate.get()),
             InSquarePlacement.spread(),
             PlacementUtils.HEIGHTMAP,
@@ -227,9 +228,9 @@ public class YEModConfiguredFeatures {
             "swamp_pillar_0",
             Biome.BiomeCategory.SWAMP);
 
-    public static final NamedConfiguredFeature SWAMP_PILLAR_CONFIGURED_1 = addConfiguredFeature(YEModFeatures.SWAMP_PILLAR.get()
+    public static final NamedConfiguredFeature SWAMP_PILLAR_1_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_PILLAR.get()
             .configured(new StructurePathConfig("swamp/pillar/swamp_pillar_1")), "swamp_pillar_1");
-    public static final NamedPlacedFeature SWAMP_PILLAR_PLACED_1 = addPlacedFeature(SWAMP_PILLAR_CONFIGURED_1.configuredFeature().placed(
+    public static final NamedPlacedFeature SWAMP_PILLAR_PLACED_1 = addPlacedFeature(SWAMP_PILLAR_1_CONFIGURED.configuredFeature().placed(
             RarityFilter.onAverageOnceEvery(YEConfig.swamp.pillarSpawnRate.get()),
             InSquarePlacement.spread(),
             PlacementUtils.HEIGHTMAP,
@@ -238,9 +239,9 @@ public class YEModConfiguredFeatures {
             "swamp_pillar_1",
             Biome.BiomeCategory.SWAMP);
 
-    public static final NamedConfiguredFeature SWAMP_PILLAR_CONFIGURED_2 = addConfiguredFeature(YEModFeatures.SWAMP_PILLAR.get()
+    public static final NamedConfiguredFeature SWAMP_PILLAR_2_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_PILLAR.get()
             .configured(new StructurePathConfig("swamp/pillar/swamp_pillar_2")), "swamp_pillar_2");
-    public static final NamedPlacedFeature SWAMP_PILLAR_PLACED_2 = addPlacedFeature(SWAMP_PILLAR_CONFIGURED_2.configuredFeature().placed(
+    public static final NamedPlacedFeature SWAMP_PILLAR_PLACED_2 = addPlacedFeature(SWAMP_PILLAR_2_CONFIGURED.configuredFeature().placed(
             RarityFilter.onAverageOnceEvery(YEConfig.swamp.pillarSpawnRate.get()),
             InSquarePlacement.spread(),
             PlacementUtils.HEIGHTMAP,
@@ -249,15 +250,481 @@ public class YEModConfiguredFeatures {
             "swamp_pillar_2",
             Biome.BiomeCategory.SWAMP);
 
+    /* Cubbies */
+    public static final NamedConfiguredFeature SWAMP_CUBBY_0_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CUBBY.get()
+            .configured(new StructurePathConfig("swamp/cubby/swamp_cubby_0")), "swamp_cubby_0");
+    public static final NamedPlacedFeature SWAMP_CUBBY_0_PLACED = addPlacedFeature(SWAMP_CUBBY_0_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.cubbySpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_cubby_0",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_CUBBY_1_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CUBBY.get()
+            .configured(new StructurePathConfig("swamp/cubby/swamp_cubby_1")), "swamp_cubby_1");
+    public static final NamedPlacedFeature SWAMP_CUBBY_1_PLACED = addPlacedFeature(SWAMP_CUBBY_1_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.cubbySpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_cubby_1",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_CUBBY_2_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CUBBY.get()
+            .configured(new StructurePathConfig("swamp/cubby/swamp_cubby_2")), "swamp_cubby_2");
+    public static final NamedPlacedFeature SWAMP_CUBBY_2_PLACED = addPlacedFeature(SWAMP_CUBBY_2_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.cubbySpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_cubby_2",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_CUBBY_3_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CUBBY.get()
+            .configured(new StructurePathConfig("swamp/cubby/swamp_cubby_3")), "swamp_cubby_3");
+    public static final NamedPlacedFeature SWAMP_CUBBY_3_PLACED = addPlacedFeature(SWAMP_CUBBY_3_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.cubbySpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_cubby_3",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_CUBBY_4_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CUBBY.get()
+            .configured(new StructurePathConfig("swamp/cubby/swamp_cubby_4")), "swamp_cubby_4");
+    public static final NamedPlacedFeature SWAMP_CUBBY_4_PLACED = addPlacedFeature(SWAMP_CUBBY_4_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.cubbySpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_cubby_4",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_CUBBY_5_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CUBBY.get()
+            .configured(new StructurePathConfig("swamp/cubby/swamp_cubby_5")), "swamp_cubby_5");
+    public static final NamedPlacedFeature SWAMP_CUBBY_5_PLACED = addPlacedFeature(SWAMP_CUBBY_5_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.cubbySpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_cubby_5",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_CUBBY_6_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CUBBY.get()
+            .configured(new StructurePathConfig("swamp/cubby/swamp_cubby_6")), "swamp_cubby_6");
+    public static final NamedPlacedFeature SWAMP_CUBBY_6_PLACED = addPlacedFeature(SWAMP_CUBBY_6_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.cubbySpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_cubby_6",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_CUBBY_7_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CUBBY.get()
+            .configured(new StructurePathConfig("swamp/cubby/swamp_cubby_7")), "swamp_cubby_7");
+    public static final NamedPlacedFeature SWAMP_CUBBY_7_PLACED = addPlacedFeature(SWAMP_CUBBY_7_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.cubbySpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_cubby_7",
+            Biome.BiomeCategory.SWAMP);
+
+    /* Arches */
+    public static final NamedConfiguredFeature SWAMP_ARCH_0_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_0")), "swamp_arch_0");
+    public static final NamedPlacedFeature SWAMP_ARCH_0_PLACED = addPlacedFeature(SWAMP_ARCH_0_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_0",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_1_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_1")), "swamp_arch_1");
+    public static final NamedPlacedFeature SWAMP_ARCH_1_PLACED = addPlacedFeature(SWAMP_ARCH_1_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_1",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_2_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_2")), "swamp_arch_2");
+    public static final NamedPlacedFeature SWAMP_ARCH_2_PLACED = addPlacedFeature(SWAMP_ARCH_2_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_2",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_3_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_3")), "swamp_arch_3");
+    public static final NamedPlacedFeature SWAMP_ARCH_3_PLACED = addPlacedFeature(SWAMP_ARCH_3_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_3",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_4_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_4")), "swamp_arch_4");
+    public static final NamedPlacedFeature SWAMP_ARCH_4_PLACED = addPlacedFeature(SWAMP_ARCH_4_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_4",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_5_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_5")), "swamp_arch_5");
+    public static final NamedPlacedFeature SWAMP_ARCH_5_PLACED = addPlacedFeature(SWAMP_ARCH_5_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_5",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_6_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_6")), "swamp_arch_6");
+    public static final NamedPlacedFeature SWAMP_ARCH_6_PLACED = addPlacedFeature(SWAMP_ARCH_6_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_6",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_7_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_7")), "swamp_arch_7");
+    public static final NamedPlacedFeature SWAMP_ARCH_7_PLACED = addPlacedFeature(SWAMP_ARCH_7_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_7",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_8_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_8")), "swamp_arch_8");
+    public static final NamedPlacedFeature SWAMP_ARCH_8_PLACED = addPlacedFeature(SWAMP_ARCH_8_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_8",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_9_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_9")), "swamp_arch_9");
+    public static final NamedPlacedFeature SWAMP_ARCH_9_PLACED = addPlacedFeature(SWAMP_ARCH_9_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_9",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_ARCH_10_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_ARCH.get()
+            .configured(new StructurePathConfig("swamp/arch/swamp_arch_10")), "swamp_arch_10");
+    public static final NamedPlacedFeature SWAMP_ARCH_10_PLACED = addPlacedFeature(SWAMP_ARCH_10_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.archSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_arch_10",
+            Biome.BiomeCategory.SWAMP);
+
+    /* Double arches */
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_0_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_0")), "swamp_double_arch_0");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_0_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_0_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_0",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_1_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_1")), "swamp_double_arch_1");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_1_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_1_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_1",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_2_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_2")), "swamp_double_arch_2");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_2_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_2_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_2",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_3_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_3")), "swamp_double_arch_3");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_3_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_3_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_3",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_4_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_4")), "swamp_double_arch_4");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_4_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_4_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_4",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_5_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_5")), "swamp_double_arch_5");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_5_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_5_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_5",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_6_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_6")), "swamp_double_arch_6");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_6_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_6_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_6",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_7_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_7")), "swamp_double_arch_7");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_7_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_7_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_7",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_8_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_8")), "swamp_double_arch_8");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_8_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_8_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_8",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_9_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_9")), "swamp_double_arch_9");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_9_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_9_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_9",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_10_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_10")), "swamp_double_arch_10");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_10_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_10_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_10",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_11_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_11")), "swamp_double_arch_11");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_11_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_11_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_11",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_12_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_12")), "swamp_double_arch_12");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_12_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_12_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_12",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_13_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_13")), "swamp_double_arch_13");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_13_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_13_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_13",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_14_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_14")), "swamp_double_arch_14");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_14_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_14_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_14",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_15_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_15")), "swamp_double_arch_15");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_15_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_15_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_15",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_16_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_16")), "swamp_double_arch_16");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_16_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_16_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_16",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_17_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_17")), "swamp_double_arch_17");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_17_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_17_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_17",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_18_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_18")), "swamp_double_arch_18");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_18_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_18_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_18",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_19_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_19")), "swamp_double_arch_19");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_19_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_19_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_19",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_20_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_20")), "swamp_double_arch_20");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_20_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_20_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_20",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_21_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_DOUBLE_ARCH.get()
+            .configured(new StructurePathConfig("swamp/double_arch/swamp_double_arch_21")), "swamp_double_arch_21");
+    public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_21_PLACED = addPlacedFeature(SWAMP_DOUBLE_ARCH_21_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.doubleArchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_double_arch_21",
+            Biome.BiomeCategory.SWAMP);
+
+    /* Miscellaneous swamp features */
     public static final NamedConfiguredFeature SWAMP_OGRE_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_OGRE.get()
             .configured(new StructurePathConfig("swamp/misc/swamp_ogre_0")), "swamp_ogre");
     public static final NamedPlacedFeature SWAMP_OGRE_PLACED = addPlacedFeature(SWAMP_OGRE_CONFIGURED.configuredFeature().placed(
-            RarityFilter.onAverageOnceEvery(YEConfig.swamp.ogreSpawnRate.get()),
-            InSquarePlacement.spread(),
-            PlacementUtils.HEIGHTMAP,
-            BiomeFilter.biome(),
-            RngInitializerPlacement.randomize()),
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.ogreSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
             "swamp_ogre",
+            Biome.BiomeCategory.SWAMP);
+
+    public static final NamedConfiguredFeature SWAMP_CHURCH_CONFIGURED = addConfiguredFeature(YEModFeatures.SWAMP_CHURCH.get()
+            .configured(new StructurePathConfig("swamp/misc/swamp_church")), "swamp_church");
+    public static final NamedPlacedFeature SWAMP_CHURCH_PLACED = addPlacedFeature(SWAMP_CHURCH_CONFIGURED.configuredFeature().placed(
+                    RarityFilter.onAverageOnceEvery(YEConfig.swamp.churchSpawnRate.get()),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome(),
+                    RngInitializerPlacement.randomize()),
+            "swamp_church",
             Biome.BiomeCategory.SWAMP);
 
     /**

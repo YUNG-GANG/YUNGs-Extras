@@ -9,10 +9,12 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-public class SwampOgreFeature extends AbstractSwampFeature<StructurePathConfig> {
-    public SwampOgreFeature() {
+@ParametersAreNonnullByDefault
+public class SwampCubbyFeature extends AbstractSwampFeature<StructurePathConfig> {
+    public SwampCubbyFeature() {
         super(StructurePathConfig.CODEC);
     }
 
@@ -29,19 +31,19 @@ public class SwampOgreFeature extends AbstractSwampFeature<StructurePathConfig> 
         }
 
         BlockPos surfacePos = mutable.immutable();
-        BlockPos cornerPos = surfacePos.offset(-2, 0, -2);
+        BlockPos cornerPos = surfacePos.offset(-2, 0, -1);
 
         // Can only extend max 3 down
-        mutable.set(cornerPos);
+        mutable.set(cornerPos).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3);
+        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.EAST, 3);
+        mutable.set(cornerPos).move(Direction.EAST, 3).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3);
+        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
         // Generate
@@ -50,3 +52,4 @@ public class SwampOgreFeature extends AbstractSwampFeature<StructurePathConfig> 
         return template != null;
     }
 }
+

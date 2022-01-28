@@ -1,8 +1,8 @@
-package com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.pillar;
+package com.yungnickyoung.minecraft.yungsextras.world.feature.swamp;
+
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.world.config.StructurePathConfig;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.AbstractSwampFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -14,8 +14,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class SwampPillarFeature extends AbstractSwampFeature<StructurePathConfig> {
-    public SwampPillarFeature() {
+public class SwampChurchFeature extends AbstractSwampFeature<StructurePathConfig> {
+    public SwampChurchFeature() {
         super(StructurePathConfig.CODEC);
     }
 
@@ -32,22 +32,22 @@ public class SwampPillarFeature extends AbstractSwampFeature<StructurePathConfig
         }
 
         BlockPos surfacePos = mutable.immutable();
-        BlockPos cornerPos = surfacePos.offset(-2, 0, -2);
+        BlockPos cornerPos = surfacePos.offset(-6, 0, -2);
 
-        // Obelisk can only extend max 3 down
+        // Can only extend max 3 down
         mutable.set(cornerPos).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.DOWN, 4);
+        mutable.set(cornerPos).move(Direction.SOUTH, 4).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.EAST, 3).move(Direction.DOWN, 4);
+        mutable.set(cornerPos).move(Direction.EAST, 12).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3).move(Direction.DOWN, 4);
+        mutable.set(cornerPos).move(Direction.SOUTH, 4).move(Direction.EAST, 12).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
-        // Generate the obelisk
+        // Generate
         ResourceLocation templateResource = new ResourceLocation(YungsExtras.MOD_ID, context.config().path);
         StructureTemplate template = this.createTemplate(templateResource, level, rand, surfacePos);
         return template != null;

@@ -7,7 +7,9 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractTemplateFea
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -15,6 +17,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.Material;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -55,6 +58,17 @@ public abstract class AbstractSwampFeature<C extends FeatureConfiguration> exten
                             .setValue(StairBlock.WATERLOGGED, blockInfo.state.getValue(StairBlock.WATERLOGGED)),
                     2);
         }
+
+        // Candles
+        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.GREEN_CANDLE)) {
+            int numCandles = rand.nextInt(4) + 1;
+            boolean lit = rand.nextFloat() < .1f;
+            world.setBlock(blockInfo.pos, getRandomCandle(rand).defaultBlockState()
+                    .setValue(CandleBlock.CANDLES, numCandles)
+                    .setValue(CandleBlock.LIT, lit),
+                    2);
+
+        }
     }
 
     private static final Set<Material> INVALID_MATERIALS = Sets.newHashSet(
@@ -67,4 +81,12 @@ public abstract class AbstractSwampFeature<C extends FeatureConfiguration> exten
 
     private static final BlockSetSelector STONE_BRICK_STAIRS_SELECTOR = new BlockSetSelector(Blocks.STONE_BRICK_STAIRS.defaultBlockState())
             .addBlock(Blocks.MOSSY_STONE_BRICK_STAIRS.defaultBlockState(), 0.6f);
+
+    private static final List<Block> CANDLES = List.of(Blocks.CANDLE, Blocks.WHITE_CANDLE, Blocks.GRAY_CANDLE,
+            Blocks.LIGHT_GRAY_CANDLE, Blocks.BROWN_CANDLE, Blocks.GREEN_CANDLE, Blocks.PURPLE_CANDLE, Blocks.BLACK_CANDLE);
+
+    private static Block getRandomCandle(Random random) {
+        int i = random.nextInt(CANDLES.size());
+        return CANDLES.get(i);
+    }
 }

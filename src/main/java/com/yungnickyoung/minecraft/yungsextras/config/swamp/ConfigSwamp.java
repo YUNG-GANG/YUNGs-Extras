@@ -5,6 +5,10 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class ConfigSwamp {
     public final ForgeConfigSpec.ConfigValue<Integer> pillarSpawnRate;
     public final ForgeConfigSpec.ConfigValue<Integer> ogreSpawnRate;
+    public final ForgeConfigSpec.ConfigValue<Integer> cubbySpawnRate;
+    public final ForgeConfigSpec.ConfigValue<Integer> archSpawnRate;
+    public final ForgeConfigSpec.ConfigValue<Integer> doubleArchSpawnRate;
+    public final ForgeConfigSpec.ConfigValue<Integer> churchSpawnRate;
 
     public ConfigSwamp(final ForgeConfigSpec.Builder BUILDER) {
         BUILDER
@@ -20,9 +24,9 @@ public class ConfigSwamp {
         pillarSpawnRate = BUILDER
             .comment(
                 " Determines the spawn rate of swamp pillars.\n" +
-                " Default: 200")
+                " Default: 900")
             .worldRestart()
-            .define("Swamp Pillar Spawn Rate", 200);
+            .define("Swamp Pillar Spawn Rate", 900);
 
         ogreSpawnRate = BUILDER
             .comment(
@@ -30,6 +34,34 @@ public class ConfigSwamp {
                 " Default: 3000")
             .worldRestart()
             .define("Outhouse Spawn Rate", 3000);
+
+        cubbySpawnRate = BUILDER
+            .comment(
+                " Determines the spawn rate of swamp cubbies.\n" +
+                " Default: 1000")
+            .worldRestart()
+            .define("Swamp Cubby Spawn Rate", 1000);
+
+        archSpawnRate = BUILDER
+            .comment(
+                " Determines the spawn rate of ruined arches.\n" +
+                " Default: 1200")
+            .worldRestart()
+            .define("Ruined Arch Spawn Rate", 1200);
+
+        doubleArchSpawnRate = BUILDER
+            .comment(
+                " Determines the spawn rate of ruined double arches.\n" +
+                " Default: 1500")
+            .worldRestart()
+            .define("Ruined Double Arch Spawn Rate", 1500);
+
+        churchSpawnRate = BUILDER
+            .comment(
+                " Determines the spawn rate of ruined gateways.\n" +
+                " Default: 2000")
+            .worldRestart()
+            .define("Ruined Gateway Spawn Rate", 2000);
 
         BUILDER.pop();
     }

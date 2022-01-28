@@ -18,8 +18,7 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.normal.
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.LargeDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.MedDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.SmallDesertWishingWellFeature;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.SwampOgreFeature;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.pillar.SwampPillarFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.*;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -70,6 +69,10 @@ public class YEModFeatures {
     /* Swamp Features */
     public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_PILLAR = register("swamp_pillar", SwampPillarFeature::new);
     public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_OGRE = register("swamp_ogre", SwampOgreFeature::new);
+    public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_CUBBY = register("swamp_cubby", SwampCubbyFeature::new);
+    public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_ARCH = register("swamp_arch", SwampArchFeature::new);
+    public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_DOUBLE_ARCH = register("swamp_double_arch", SwampDoubleArchFeature::new);
+    public static final RegistryObject<Feature<StructurePathConfig>> SWAMP_CHURCH = register("swamp_church", SwampChurchFeature::new);
 
     public static void init () {
         FEATURES.register(FMLJavaModLoadingContext.get().getModEventBus());
