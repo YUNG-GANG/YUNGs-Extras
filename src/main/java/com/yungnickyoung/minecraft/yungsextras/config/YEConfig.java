@@ -19,8 +19,8 @@ public class YEConfig implements ConfigData {
      */
     @Override
     public void validatePostLoad() {
-        YungsExtras.desertDecorationsAdditionalWhitelist = parseListString(yungsExtras.desertDecorations.additionalBiomeWhitelist, YungsExtras.desertDecorationsAdditionalWhitelist, "Additional Whitelisted Biomes");
-        YungsExtras.desertDecorationsBlacklist = parseListString(yungsExtras.desertDecorations.biomeBlacklist, YungsExtras.desertDecorationsBlacklist, "Blacklisted Biomes");
+        YungsExtras.additionalWhitelistedBiomes = parseListString(yungsExtras.desertDecorations.additionalBiomeWhitelist, YungsExtras.additionalWhitelistedBiomes, "Additional Whitelisted Biomes");
+        YungsExtras.blacklistedBiomes = parseListString(yungsExtras.desertDecorations.biomeBlacklist, YungsExtras.blacklistedBiomes, "Blacklisted Biomes");
     }
 
     private List<String> parseListString(String dimensionWhitelistString, List<String> defaultList, String settingName) {

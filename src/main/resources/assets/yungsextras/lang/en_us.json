@@ -5,6 +5,8 @@
 
   "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations": "Desert Decorations",
   "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations.@Tooltip": "Desert Decorations",
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures": "Swamp Structures",
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.@Tooltip": "Swamp Structures",
   "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations.additionalBiomeWhitelist": "Additional Whitelisted Biomes",
   "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations.additionalBiomeWhitelist.@Tooltip[0]": "List of additional biomes that will have Desert Decorations.",
   "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations.additionalBiomeWhitelist.@Tooltip[1]": "By default, all biomes (including modded biomes) with the Desert category",
@@ -85,5 +87,24 @@
   "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations.misc.giantTorchSpawnRate.@Tooltip": "Determines the spawn rate of flame outposts.",
 
   "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations.misc.chillzoneSpawnRate": "Abandoned Vacation Spot Spawn Rate",
-  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations.misc.chillzoneSpawnRate.@Tooltip": "Determines the spawn rate of abandoned vacation spots."
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.desertDecorations.misc.chillzoneSpawnRate.@Tooltip": "Determines the spawn rate of abandoned vacation spots.",
+
+
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.pillarSpawnRate": "Swamp Pillar Spawn Rate",
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.pillarSpawnRate.@Tooltip": "Determines the spawn rate of ruined swamp pillars.",
+
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.ogreSpawnRate": "Outhouse Spawn Rate",
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.ogreSpawnRate.@Tooltip": "Determines the spawn rate of outhouses.",
+
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.cubbySpawnRate": "Swamp Cubby Spawn Rate",
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.cubbySpawnRate.@Tooltip": "Determines the spawn rate of swamp cubbies.",
+
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.archSpawnRate": "Ruined Arch Spawn Rate",
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.archSpawnRate.@Tooltip": "Determines the spawn rate of ruined arches.",
+
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.doubleArchSpawnRate": "Ruined Double Arch Spawn Rate",
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.doubleArchSpawnRate.@Tooltip": "Determines the spawn rate of ruined double arches.",
+
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.churchSpawnRate": "Ruined Gateway Spawn Rate",
+  "text.autoconfig.yungsextras-fabric-1_18.option.yungsExtras.swampStructures.churchSpawnRate.@Tooltip": "Determines the spawn rate of ruined gateways."
 }

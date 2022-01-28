@@ -2,6 +2,7 @@ package com.yungnickyoung.minecraft.yungsextras.init;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
 import com.yungnickyoung.minecraft.yungsextras.util.NamedFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.config.StructurePathConfig;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.ChillzoneDesertFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.GiantDesertTorchFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc.SmallRuinsDesertFeature;
@@ -18,6 +19,7 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.normal.
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.LargeDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.MedDesertWishingWellFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well.wishing.SmallDesertWishingWellFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.*;
 import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -67,6 +69,14 @@ public class YEModFeatures {
     public static final NamedFeature<NoneFeatureConfiguration> DESERT_RUINS_0 = addFeature(SmallRuinsDesertFeature::new, "desert_ruins_0");
     public static final NamedFeature<NoneFeatureConfiguration> CHILLZONE = addFeature(ChillzoneDesertFeature::new, "desert_chillzone");
 
+    /* Swamp Features */
+    public static final NamedFeature<StructurePathConfig> SWAMP_PILLAR = addFeature(SwampPillarFeature::new, "swamp_pillar");
+    public static final NamedFeature<StructurePathConfig> SWAMP_OGRE = addFeature(SwampOgreFeature::new, "swamp_ogre");
+    public static final NamedFeature<StructurePathConfig> SWAMP_CUBBY = addFeature(SwampCubbyFeature::new, "swamp_cubby");
+    public static final NamedFeature<StructurePathConfig> SWAMP_ARCH = addFeature(SwampArchFeature::new, "swamp_arch");
+    public static final NamedFeature<StructurePathConfig> SWAMP_DOUBLE_ARCH = addFeature(SwampDoubleArchFeature::new, "swamp_double_arch");
+    public static final NamedFeature<StructurePathConfig> SWAMP_CHURCH = addFeature(SwampChurchFeature::new, "swamp_church");
+
     private static <FC extends FeatureConfiguration> NamedFeature<FC> addFeature(Supplier<Feature<FC>> featureSupplier, String name) {
         Feature<FC> feature = featureSupplier.get();
         NamedFeature<FC> namedFeature = new NamedFeature<>(name, feature);
@@ -102,18 +112,24 @@ public class YEModFeatures {
         // Add desert decorations
         BiomeModifications.create(new ResourceLocation(YungsExtras.MOD_ID, "desert_decorations_addition"))
                 .add(ModificationPhase.ADDITIONS,
-                        YEModFeatures::selectBiomes,
-                        YEModFeatures::modifyBiomes);
+                        context -> selectBiomes(context, Biome.BiomeCategory.DESERT),
+                        context -> modifyBiomes(context, Biome.BiomeCategory.DESERT));
+
+        // Add swamp structures
+        BiomeModifications.create(new ResourceLocation(YungsExtras.MOD_ID, "swamp_structures_addition"))
+                .add(ModificationPhase.ADDITIONS,
+                        context -> selectBiomes(context, Biome.BiomeCategory.SWAMP),
+                        context -> modifyBiomes(context, Biome.BiomeCategory.SWAMP));
     }
 
-    private static boolean selectBiomes(BiomeSelectionContext context) {
+    private static boolean selectBiomes(BiomeSelectionContext context, Biome.BiomeCategory biomeCategory) {
         String biomeName = context.getBiomeKey().location().toString();
-        if (YungsExtras.desertDecorationsBlacklist.contains(biomeName)) return false;
-        return (context.getBiome().getBiomeCategory() == Biome.BiomeCategory.DESERT || YungsExtras.desertDecorationsAdditionalWhitelist.contains(biomeName));
+        if (YungsExtras.blacklistedBiomes.contains(biomeName)) return false;
+        return (context.getBiome().getBiomeCategory() == biomeCategory || YungsExtras.additionalWhitelistedBiomes.contains(biomeName));
     }
 
-    private static void modifyBiomes(BiomeModificationContext context) {
-        YEModConfiguredFeatures.NAMED_PLACED_FEATURES.forEach(namedPlacedFeature -> {
+    private static void modifyBiomes(BiomeModificationContext context, Biome.BiomeCategory biomeCategory) {
+        YEModConfiguredFeatures.NAMED_PLACED_FEATURES_BY_BIOME.get(biomeCategory).forEach(namedPlacedFeature -> {
             PlacedFeature placedFeature = namedPlacedFeature.placedFeature();
             context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, placedFeature);
         });

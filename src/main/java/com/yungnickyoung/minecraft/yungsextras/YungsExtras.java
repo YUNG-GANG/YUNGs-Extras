@@ -24,8 +24,8 @@ public class YungsExtras implements ModInitializer {
      * Lists of whitelisted and blacklisted biomes.
      * Will be reinitialized later w/ values from config.
      */
-    public static List<String> desertDecorationsAdditionalWhitelist = new ArrayList<>();
-    public static List<String> desertDecorationsBlacklist = new ArrayList<>();
+    public static List<String> additionalWhitelistedBiomes = new ArrayList<>();
+    public static List<String> blacklistedBiomes = new ArrayList<>();
 
     public void onInitialize() {
         YEModConfig.init();
