@@ -10,8 +10,6 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-// The value here should match an entry in the META-INF/mods.toml file
-
 @Mod(YungsExtras.MOD_ID)
 public class YungsExtras {
     public static final String MOD_ID = "yungsextras";
