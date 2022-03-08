@@ -21,13 +21,13 @@ issueTrackerURL="https://github.com/yungnickyoung/YUNGs-Extras/issues"
 [[dependencies.yungsextras]]
     modId="forge"
     mandatory=true
-    versionRange="[39.0.0,)"
+    versionRange="[39.0.7,)"
     ordering="NONE"
     side="SERVER"
 
 [[dependencies.yungsextras]]
     modId="yungsapi"
-    versionRange="[1.18.1-Forge-23,)"
+    versionRange="[1.18.1-Forge-26,)"
     mandatory=true
     ordering="NONE"
     side="BOTH"
