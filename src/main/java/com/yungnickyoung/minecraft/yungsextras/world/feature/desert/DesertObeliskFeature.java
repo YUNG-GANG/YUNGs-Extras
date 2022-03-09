@@ -1,7 +1,7 @@
-package com.yungnickyoung.minecraft.yungsextras.world.feature.desert.obelisk;
+package com.yungnickyoung.minecraft.yungsextras.world.feature.desert;
 
-import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractTemplateFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.config.ResourceLocationFeatureConfiguration;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractNbtFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -9,27 +9,24 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.material.Material;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public abstract class AbstractDesertObeliskFeature extends AbstractTemplateFeature<NoneFeatureConfiguration> {
-    private static final String path = "desert/obelisk/";
-    protected ResourceLocation name;
-
-    public AbstractDesertObeliskFeature(String name) {
-        super(NoneFeatureConfiguration.CODEC);
-        this.name = new ResourceLocation(YungsExtras.MOD_ID, path + name);
+public class DesertObeliskFeature extends AbstractNbtFeature<ResourceLocationFeatureConfiguration> {
+    public DesertObeliskFeature() {
+        super(ResourceLocationFeatureConfiguration.CODEC);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+    public boolean place(FeaturePlaceContext<ResourceLocationFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
         Random rand = context.random();
         BlockPos pos = context.origin();
+        ResourceLocation location = context.config().getLocation();
 
         // Find the surface
         BlockPos.MutableBlockPos mutable = pos.mutable();
@@ -42,23 +39,23 @@ public abstract class AbstractDesertObeliskFeature extends AbstractTemplateFeatu
         Block block = level.getBlockState(surfacePos).getBlock();
 
         // Ensure valid position
-        if (!BlockTags.SAND.contains(block)) return false;
+        if (!block.defaultBlockState().is(BlockTags.SAND)) return false;
 
         // Check to avoid bits of the obelisk floating
         mutable.set(cornerPos);
-        if (level.isEmptyBlock(mutable)) return false;
+        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
         mutable.set(cornerPos).move(Direction.SOUTH, 3);
-        if (level.isEmptyBlock(mutable)) return false;
+        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
         mutable.set(cornerPos).move(Direction.EAST, 3);
-        if (level.isEmptyBlock(mutable)) return false;
+        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
         mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3);
-        if (level.isEmptyBlock(mutable)) return false;
+        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
         // Generate the obelisk
-        StructureTemplate template = this.createTemplate(this.name, level, rand, surfacePos.above());
+        StructureTemplate template = this.createTemplateFromCenter(location, level, rand, surfacePos.above());
         return template != null;
     }
 }

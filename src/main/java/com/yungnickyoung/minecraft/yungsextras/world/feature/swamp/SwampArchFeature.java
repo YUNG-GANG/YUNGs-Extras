@@ -1,7 +1,6 @@
 package com.yungnickyoung.minecraft.yungsextras.world.feature.swamp;
 
-import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
-import com.yungnickyoung.minecraft.yungsextras.world.config.StructurePathConfig;
+import com.yungnickyoung.minecraft.yungsextras.world.config.ResourceLocationFeatureConfiguration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -13,16 +12,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class SwampArchFeature extends AbstractSwampFeature<StructurePathConfig> {
+public class SwampArchFeature extends AbstractSwampFeature<ResourceLocationFeatureConfiguration> {
     public SwampArchFeature() {
-        super(StructurePathConfig.CODEC);
+        super(ResourceLocationFeatureConfiguration.CODEC);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<StructurePathConfig> context) {
+    public boolean place(FeaturePlaceContext<ResourceLocationFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
         Random rand = context.random();
         BlockPos pos = context.origin();
+        ResourceLocation location = context.config().getLocation();
 
         // Find the surface
         BlockPos.MutableBlockPos mutable = pos.mutable();
@@ -33,7 +33,7 @@ public class SwampArchFeature extends AbstractSwampFeature<StructurePathConfig> 
         BlockPos surfacePos = mutable.immutable();
         BlockPos cornerPos = surfacePos.offset(-2, 0, 0);
 
-        // Can only extend max 3 down
+        // Can only extend max 3 down in air
         mutable.set(cornerPos).move(Direction.DOWN, 4);
         if (level.isEmptyBlock(mutable)) return false;
 
@@ -41,8 +41,7 @@ public class SwampArchFeature extends AbstractSwampFeature<StructurePathConfig> 
         if (level.isEmptyBlock(mutable)) return false;
 
         // Generate
-        ResourceLocation templateResource = new ResourceLocation(YungsExtras.MOD_ID, context.config().path);
-        StructureTemplate template = this.createTemplate(templateResource, level, rand, surfacePos);
+        StructureTemplate template = this.createTemplateFromCenter(location, level, rand, surfacePos);
         return template != null;
     }
 }

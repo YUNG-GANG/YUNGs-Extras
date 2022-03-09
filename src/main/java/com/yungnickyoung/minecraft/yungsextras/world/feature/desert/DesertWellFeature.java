@@ -1,41 +1,46 @@
-package com.yungnickyoung.minecraft.yungsextras.world.feature.desert.well;
+package com.yungnickyoung.minecraft.yungsextras.world.feature.desert;
 
-import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
-import com.yungnickyoung.minecraft.yungsextras.world.WishingWellChances;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractTemplateFeature;
+import com.google.common.collect.Lists;
+import com.yungnickyoung.minecraft.yungsextras.init.YEModProcessors;
+import com.yungnickyoung.minecraft.yungsextras.world.config.DesertWellFeatureConfiguration;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractNbtFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.processor.INbtFeatureProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public abstract class AbstractDesertWellFeature extends AbstractTemplateFeature<NoneFeatureConfiguration> {
-    private static final String path = "desert/wells/";
-    private final int radius;
-    protected ResourceLocation name;
+public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfiguration> {
+    public DesertWellFeature() {
+        super(DesertWellFeatureConfiguration.CODEC);
+    }
 
-    public AbstractDesertWellFeature(String name, int size) {
-        super(NoneFeatureConfiguration.CODEC);
-        this.name = new ResourceLocation(YungsExtras.MOD_ID, path + name);
-        this.radius = size;
+    /**
+     * We override this method to supply the processors specific to this template feature.
+     */
+    @Override
+    protected List<INbtFeatureProcessor> useProcessors() {
+        return Lists.newArrayList(
+                YEModProcessors.DESERT_WELL_PROCESSOR
+        );
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+    public boolean place(FeaturePlaceContext<DesertWellFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
         Random rand = context.random();
         BlockPos pos = context.origin();
+        int radius = context.config().getRadius();
+        ResourceLocation location = context.config().getLocation();
 
         // Find the surface
         BlockPos.MutableBlockPos mutable = pos.mutable();
@@ -47,7 +52,7 @@ public abstract class AbstractDesertWellFeature extends AbstractTemplateFeature<
         Block block = level.getBlockState(surfacePos).getBlock();
 
         // Ensure valid position
-        if (!BlockTags.SAND.contains(block)) return false;
+        if (!block.defaultBlockState().is(BlockTags.SAND)) return false;
 
         // Naive check to avoid spawning on a shallow overhang or steep cliff
         for (int i = 1; i <= 7; i++) {
@@ -64,15 +69,7 @@ public abstract class AbstractDesertWellFeature extends AbstractTemplateFeature<
         }
 
         // Generate the well
-        StructureTemplate template = this.createTemplate(this.name, level, rand, surfacePos.relative(Direction.DOWN, 6));
+        StructureTemplate template = this.createTemplateFromCenter(location, level, rand, surfacePos.relative(Direction.DOWN, 6));
         return template != null;
-    }
-
-    @Override
-    protected void processTemplate(StructureTemplate template, WorldGenLevel world, Random rand, BlockPos cornerPos, BlockPos centerPos, StructurePlaceSettings placementSettings) {
-        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.YELLOW_STAINED_GLASS)) {
-            BlockState blockState = WishingWellChances.get().getRandomLootBlock(rand);
-            world.setBlock(blockInfo.pos, blockState, 2);
-        }
     }
 }

@@ -1,7 +1,7 @@
-package com.yungnickyoung.minecraft.yungsextras.world.feature.desert.misc;
+package com.yungnickyoung.minecraft.yungsextras.world.feature.desert;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtras;
-import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractTemplateFeature;
+import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractNbtFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -11,15 +11,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.material.Material;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class ChillzoneDesertFeature extends AbstractTemplateFeature<NoneFeatureConfiguration> {
-    private static final ResourceLocation path = new ResourceLocation(YungsExtras.MOD_ID, "desert/misc/chillzone");
+public class DesertSmallRuinsFeature extends AbstractNbtFeature<NoneFeatureConfiguration> {
+    private static final ResourceLocation location = new ResourceLocation(YungsExtras.MOD_ID, "desert/misc/ruins_0");
 
-    public ChillzoneDesertFeature() {
+    public DesertSmallRuinsFeature() {
         super(NoneFeatureConfiguration.CODEC);
     }
 
@@ -36,27 +37,27 @@ public class ChillzoneDesertFeature extends AbstractTemplateFeature<NoneFeatureC
         }
 
         BlockPos surfacePos = mutable.immutable();
-        BlockPos cornerPos = surfacePos.offset(-1, 0, -2);
+        BlockPos cornerPos = surfacePos.offset(-2, 0, -2);
         Block block = level.getBlockState(surfacePos).getBlock();
 
         // Ensure valid position
-        if (!BlockTags.SAND.contains(block)) return false;
+        if (!block.defaultBlockState().is(BlockTags.SAND)) return false;
 
         // Check to avoid bits of the feature floating
-        mutable.set(cornerPos).move(Direction.SOUTH, 2);
-        if (level.isEmptyBlock(mutable)) return false;
+        mutable.set(cornerPos);
+        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 2);
-        if (level.isEmptyBlock(mutable)) return false;
+        mutable.set(cornerPos).move(Direction.SOUTH, 3);
+        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 1).move(Direction.EAST, 1);
-        if (level.isEmptyBlock(mutable)) return false;
+        mutable.set(cornerPos).move(Direction.EAST, 3);
+        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
-        mutable.set(cornerPos).move(Direction.SOUTH, 2).move(Direction.EAST, 2);
-        if (level.isEmptyBlock(mutable)) return false;
+        mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3);
+        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
         // Generate the feature
-        StructureTemplate template = this.createTemplate(path, level, rand, surfacePos.above());
+        StructureTemplate template = this.createTemplateFromCenter(location, level, rand, surfacePos);
         return template != null;
     }
 }
