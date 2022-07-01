@@ -348,17 +348,9 @@ public class ConfiguredFeatureModule {
             "swamp_arch_10",
             Biome.BiomeCategory.SWAMP);
 
-    public static final NamedConfiguredFeature SWAMP_ARCH_11_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_arch_11")),
-            "swamp_arch_11");
-    public static final NamedPlacedFeature SWAMP_ARCH_11_PLACED = addPlacedFeature(
-            new PlacedFeature(Holder.direct(SWAMP_ARCH_11_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.archSpawnRate)),
-            "swamp_arch_11",
-            Biome.BiomeCategory.SWAMP);
-
     /* Double arches */
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_0_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_0")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_0")),
             "swamp_double_arch_0");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_0_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_0_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -366,7 +358,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_1_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_1")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_1")),
             "swamp_double_arch_1");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_1_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_1_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -374,7 +366,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_2_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_2")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_2")),
             "swamp_double_arch_2");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_2_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_2_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -382,7 +374,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_3_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_3")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_3")),
             "swamp_double_arch_3");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_3_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_3_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -390,7 +382,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_4_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_4")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_4")),
             "swamp_double_arch_4");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_4_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_4_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -398,7 +390,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_5_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_5")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_5")),
             "swamp_double_arch_5");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_5_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_5_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -406,7 +398,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_6_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_6")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_6")),
             "swamp_double_arch_6");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_6_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_6_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -414,7 +406,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_7_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_7")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_7")),
             "swamp_double_arch_7");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_7_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_7_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -422,7 +414,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_8_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_8")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_8")),
             "swamp_double_arch_8");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_8_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_8_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -430,7 +422,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_9_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_9")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_9")),
             "swamp_double_arch_9");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_9_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_9_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -438,7 +430,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_10_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_10")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_10")),
             "swamp_double_arch_10");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_10_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_10_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -446,7 +438,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_11_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_11")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_11")),
             "swamp_double_arch_11");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_11_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_11_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -454,7 +446,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_12_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_12")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_12")),
             "swamp_double_arch_12");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_12_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_12_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -462,7 +454,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_13_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_13")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_13")),
             "swamp_double_arch_13");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_13_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_13_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -470,7 +462,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_14_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_14")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_14")),
             "swamp_double_arch_14");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_14_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_14_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -478,7 +470,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_15_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_15")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_15")),
             "swamp_double_arch_15");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_15_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_15_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -486,7 +478,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_16_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_16")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_16")),
             "swamp_double_arch_16");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_16_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_16_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -494,7 +486,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_17_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_17")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_17")),
             "swamp_double_arch_17");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_17_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_17_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -502,7 +494,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_18_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_18")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_18")),
             "swamp_double_arch_18");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_18_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_18_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -510,7 +502,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_19_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_19")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_19")),
             "swamp_double_arch_19");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_19_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_19_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -518,7 +510,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_20_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_20")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_20")),
             "swamp_double_arch_20");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_20_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_20_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
@@ -526,7 +518,7 @@ public class ConfiguredFeatureModule {
             Biome.BiomeCategory.SWAMP);
 
     public static final NamedConfiguredFeature SWAMP_DOUBLE_ARCH_21_CONFIGURED = addConfiguredFeature(
-            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/arch/swamp_double_arch_21")),
+            new ConfiguredFeature<>(FeatureModule.SWAMP_DOUBLE_ARCH, new ResourceLocationFeatureConfiguration("swamp/double_arch/swamp_double_arch_21")),
             "swamp_double_arch_21");
     public static final NamedPlacedFeature SWAMP_DOUBLE_ARCH_21_PLACED = addPlacedFeature(
             new PlacedFeature(Holder.direct(SWAMP_DOUBLE_ARCH_21_CONFIGURED.configuredFeature()), placement(YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate)),
