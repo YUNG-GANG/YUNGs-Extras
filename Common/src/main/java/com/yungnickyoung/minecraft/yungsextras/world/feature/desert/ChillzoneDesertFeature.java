@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -14,7 +15,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.material.Material;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Random;
 
 @ParametersAreNonnullByDefault
 public class ChillzoneDesertFeature extends AbstractNbtFeature<NoneFeatureConfiguration> {
@@ -27,7 +27,7 @@ public class ChillzoneDesertFeature extends AbstractNbtFeature<NoneFeatureConfig
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
-        Random rand = context.random();
+        RandomSource rand = context.random();
         BlockPos pos = context.origin();
 
         // Find the surface

@@ -4,11 +4,10 @@ import com.yungnickyoung.minecraft.yungsextras.world.config.ResourceLocationFeat
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-
-import java.util.Random;
 
 public class SwampOgreFeature extends AbstractSwampFeature<ResourceLocationFeatureConfiguration> {
     public SwampOgreFeature() {
@@ -18,7 +17,7 @@ public class SwampOgreFeature extends AbstractSwampFeature<ResourceLocationFeatu
     @Override
     public boolean place(FeaturePlaceContext<ResourceLocationFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
-        Random rand = context.random();
+        RandomSource randomSource = context.random();
         BlockPos pos = context.origin();
         ResourceLocation location = context.config().getLocation();
 
@@ -45,7 +44,7 @@ public class SwampOgreFeature extends AbstractSwampFeature<ResourceLocationFeatu
         if (level.isEmptyBlock(mutable)) return false;
 
         // Generate
-        StructureTemplate template = this.createTemplateFromCenter(location, level, rand, surfacePos);
+        StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos);
         return template != null;
     }
 }

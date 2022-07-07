@@ -1,15 +1,15 @@
 package com.yungnickyoung.minecraft.yungsextras.world.placement;
 
 import com.mojang.serialization.Codec;
-import com.yungnickyoung.minecraft.yungsextras.module.PlacementsModule;
+import com.yungnickyoung.minecraft.yungsextras.module.PlacementModifierTypeModule;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Random;
 import java.util.stream.Stream;
 
 /**
@@ -20,14 +20,14 @@ import java.util.stream.Stream;
 @MethodsReturnNonnullByDefault
 public class RngInitializerPlacement extends PlacementModifier {
     private static final RngInitializerPlacement INSTANCE = new RngInitializerPlacement();
-    public static final Codec<RngInitializerPlacement> CODEC = Codec.unit(() -> INSTANCE);
+    public static final Codec<PlacementModifier> CODEC = Codec.unit(() -> INSTANCE);
 
     public static RngInitializerPlacement randomize() {
         return INSTANCE;
     }
 
     @Override
-    public Stream<BlockPos> getPositions(PlacementContext placementContext, Random random, BlockPos pos) {
+    public Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos pos) {
         long a = random.nextLong() | 1L;
         long b = random.nextLong() | 1L;
         random.setSeed(((pos.getX() * a * 341873128712L + 12412146) * (pos.getZ() * b * 132897987541L + 5813717)) ^ 423487234);
@@ -36,6 +36,6 @@ public class RngInitializerPlacement extends PlacementModifier {
 
     @Override
     public PlacementModifierType<?> type() {
-        return PlacementsModule.RNG_INITIALIZER;
+        return PlacementModifierTypeModule.RNG_INITIALIZER;
     }
 }

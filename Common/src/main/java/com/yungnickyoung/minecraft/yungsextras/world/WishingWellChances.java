@@ -1,10 +1,9 @@
 package com.yungnickyoung.minecraft.yungsextras.world;
 
 import com.yungnickyoung.minecraft.yungsapi.world.BlockStateRandomizer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.Random;
 
 /**
  * Singleton class holding map of blocks to probabilities.
@@ -34,7 +33,7 @@ public class WishingWellChances {
 
     private BlockStateRandomizer lootBlockChances;
 
-    public BlockState getRandomLootBlock(Random random) {
-        return lootBlockChances.get(random);
+    public BlockState getRandomLootBlock(RandomSource randomSource) {
+        return lootBlockChances.get(randomSource);
     }
 }

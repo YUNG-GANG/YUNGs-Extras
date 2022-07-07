@@ -2,6 +2,7 @@ package com.yungnickyoung.minecraft.yungsextras.world.processor;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -13,7 +14,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.Material;
 
-import java.util.Random;
 import java.util.function.Supplier;
 
 /**
@@ -26,12 +26,12 @@ public interface INbtFeatureProcessor {
      * Processes the given template when placing a feature.
      * @param template The feature template to process
      * @param level World instance
-     * @param rand Random instance
+     * @param randomSource RandomSource instance
      * @param cornerPos Position of the lowest x-z corner of the feature
      * @param centerPos Position of the center of the feature, usually the bottom center
      * @param placementSettings The feature's PlacementSettings
      */
-    void processTemplate(StructureTemplate template, WorldGenLevel level, Random rand, BlockPos cornerPos, BlockPos centerPos, StructurePlaceSettings placementSettings);
+    void processTemplate(StructureTemplate template, WorldGenLevel level, RandomSource randomSource, BlockPos cornerPos, BlockPos centerPos, StructurePlaceSettings placementSettings);
 
     /**
      * Generates a pillar vertically down from the given starting position.

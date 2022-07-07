@@ -5,6 +5,7 @@ import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.world.processor.INbtFeatureProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -14,7 +15,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends Feature<C> {
     protected List<INbtFeatureProcessor> processors;
@@ -32,7 +32,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
      * @param centerPos The position to generate the feature at. This will be the center of the feature.
      * @return The generated Template
      */
-    protected StructureTemplate createTemplateFromCenter(ResourceLocation id, WorldGenLevel level, Random rand, BlockPos centerPos) {
+    protected StructureTemplate createTemplateFromCenter(ResourceLocation id, WorldGenLevel level, RandomSource rand, BlockPos centerPos) {
         return createTemplateFromCenterWithPlacement(id, level, rand, centerPos, new StructurePlaceSettings());
     }
 
@@ -40,7 +40,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
      * Generates the template feature with applies processors.
      * @param id ID of this template feature (i.e. namespaced path to the structure NBT)
      * @param level WorldGenLevel
-     * @param rand Random
+     * @param randomSource Random
      * @param centerPos The position to generate the feature at. This will be the center of the feature.
      * @param placement Placement settings
      * @return The generated Template
@@ -48,7 +48,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
     protected StructureTemplate createTemplateFromCenterWithPlacement(
             ResourceLocation id,
             WorldGenLevel level,
-            Random rand,
+            RandomSource randomSource,
             BlockPos centerPos,
             StructurePlaceSettings placement
     ) {
@@ -66,10 +66,10 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
         BlockPos cornerPos = centerPos.offset(-template.getSize().getX() / 2, 0, -template.getSize().getZ() / 2);
 
         // Create template
-        template.placeInWorld(level, cornerPos, centerPos, placement, rand, 2);
+        template.placeInWorld(level, cornerPos, centerPos, placement, randomSource, 2);
 
         // Additional optional processing
-        processors.forEach(processor -> processor.processTemplate(template, level, rand, cornerPos, centerPos, placement));
+        processors.forEach(processor -> processor.processTemplate(template, level, randomSource, cornerPos, centerPos, placement));
 
         return template;
     }
@@ -78,19 +78,19 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
      * Generates the template feature with default placement settings and applies processors.
      * @param id ID of this template feature (i.e. namespaced path to the structure NBT)
      * @param level WorldGenLevel
-     * @param rand Random
+     * @param randomSource Random
      * @param cornerPos The position to generate the feature at. This is the lowest x-y-z corner of the feature.
      * @return The generated Template
      */
-    protected StructureTemplate createTemplateFromCorner(ResourceLocation id, WorldGenLevel level, Random rand, BlockPos cornerPos) {
-        return createTemplateFromCornerWithPlacement(id, level, rand, cornerPos, new StructurePlaceSettings());
+    protected StructureTemplate createTemplateFromCorner(ResourceLocation id, WorldGenLevel level, RandomSource randomSource, BlockPos cornerPos) {
+        return createTemplateFromCornerWithPlacement(id, level, randomSource, cornerPos, new StructurePlaceSettings());
     }
 
     /**
      * Generates the template feature with applies processors.
      * @param id ID of this template feature (i.e. namespaced path to the structure NBT)
      * @param level WorldGenLevel
-     * @param rand Random
+     * @param randomSource Random
      * @param cornerPos The position to generate the feature at. This is the lowest x-y-z corner of the feature.
      * @param placement Placement settings
      * @return The generated Template
@@ -98,7 +98,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
     protected StructureTemplate createTemplateFromCornerWithPlacement(
             ResourceLocation id,
             WorldGenLevel level,
-            Random rand,
+            RandomSource randomSource,
             BlockPos cornerPos,
             StructurePlaceSettings placement
     ) {
@@ -116,10 +116,10 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
         BlockPos centerPos = cornerPos.offset(template.getSize().getX() / 2, 0, template.getSize().getZ() / 2);
 
         // Create template
-        template.placeInWorld(level, cornerPos, centerPos, placement, rand, 2);
+        template.placeInWorld(level, cornerPos, centerPos, placement, randomSource, 2);
 
         // Additional optional processing
-        processors.forEach(processor -> processor.processTemplate(template, level, rand, cornerPos, centerPos, placement));
+        processors.forEach(processor -> processor.processTemplate(template, level, randomSource, cornerPos, centerPos, placement));
 
         return template;
     }

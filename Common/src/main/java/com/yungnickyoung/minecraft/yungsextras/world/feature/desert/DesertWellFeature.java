@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -16,7 +17,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
-import java.util.Random;
 
 @ParametersAreNonnullByDefault
 public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfiguration> {
@@ -37,7 +37,7 @@ public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfi
     @Override
     public boolean place(FeaturePlaceContext<DesertWellFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
-        Random rand = context.random();
+        RandomSource randomSource = context.random();
         BlockPos pos = context.origin();
         int radius = context.config().getRadius();
         ResourceLocation location = context.config().getLocation();
@@ -69,7 +69,7 @@ public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfi
         }
 
         // Generate the well
-        StructureTemplate template = this.createTemplateFromCenter(location, level, rand, surfacePos.relative(Direction.DOWN, 6));
+        StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos.relative(Direction.DOWN, 6));
         return template != null;
     }
 }

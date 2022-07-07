@@ -1,6 +1,5 @@
 package com.yungnickyoung.minecraft.yungsextras.module;
 
-import com.google.common.collect.Lists;
 import com.yungnickyoung.minecraft.yungsapi.io.JSON;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.config.YEConfigForge;
@@ -18,17 +17,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConfigModuleForge {
     public static final String CUSTOM_CONFIG_PATH = "YungsExtras";
-    public static final String VERSION_PATH = "forge-1_18";
+    public static final String VERSION_PATH = "forge-1_19";
 
     public static void init() {
         initCustomFiles();
-        // Register mod config with Forge
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, YEConfigForge.SPEC, "YungsExtras-forge-1_18.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, YEConfigForge.SPEC, "YungsExtras-forge-1_19.toml");
         MinecraftForge.EVENT_BUS.addListener(ConfigModuleForge::onWorldLoad);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(ConfigModuleForge::onConfigChange);
     }
@@ -79,8 +75,8 @@ public class ConfigModuleForge {
                             For example, the first time you use YUNG's Extras for MC 1.16 on Forge, the 'forge-1_16' subdirectory will be created in this folder.
                             If no subdirectory for your version is created, then that version probably does not support the additional options.
 
-                            NOTE -- MOST OPTIONS CAN BE FOUND IN A CONFIG FILE OUTSIDE THIS FOLDER!
-                            For example, on Forge 1.16 the file is 'YungsExtras-forge-1_16.toml'.""";
+                            NOTE -- AS OF 1.19, ALL SPAWN RATE RELATED OPTIONS MUST NOW BE MODIFIED VIA DATA PACK.
+                            """;
             try {
                 Files.write(path, readmeText.getBytes());
             } catch (IOException e) {
@@ -99,12 +95,12 @@ public class ConfigModuleForge {
                             #        wishing_wells.json          #
                             ######################################
 
-                            This file contains a BlockSetSelector (see below) describing the probability of a given block being chosen.
+                            This file contains a BlockStateRandomizer (see below) describing the probability of a given block being chosen.
                             These probabilities are used for Wishing Wells, which have\s
                             loot deposits at the bottom of them.
 
                             ######################################
-                            #         BlockSetSelectors          #
+                            #       BlockStateRandomizer         #
                             ######################################
 
                             Describes a set of blockstates and the probability of each blockstate being chosen.
@@ -114,7 +110,7 @@ public class ConfigModuleForge {
                                   For example, if the total sum of all the probabilities of the entries is 0.6, then
                                   there is a 0.4 chance of the defaultBlock being selected.
 
-                            Here's an example block selector:
+                            Here's an example randomizer:
                             "entries": {
                               "minecraft:cobblestone": 0.25,
                               "minecraft:air": 0.2,
@@ -122,7 +118,7 @@ public class ConfigModuleForge {
                             },
                             "defaultBlock": "minecraft:oak_planks"
 
-                            For each block, this selector has a 25% chance of returning cobblestone, 20% chance of choosing air,
+                            For each block, this randomizer has a 25% chance of returning cobblestone, 20% chance of choosing air,
                             10% chance of choosing stone bricks, and a 100 - (25 + 20 + 10) = 45% chance of choosing oak planks (since it's the default block).
                             """;
             try {
@@ -165,43 +161,6 @@ public class ConfigModuleForge {
     }
 
     private static void bakeConfig() {
-        YungsExtrasCommon.CONFIG.desert.wells.smallNormalWellSpawnRate = YEConfigForge.desertDecorations.wells.smallNormalWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.wells.mediumNormalWellSpawnRate = YEConfigForge.desertDecorations.wells.mediumNormalWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.wells.largeNormalWellSpawnRate = YEConfigForge.desertDecorations.wells.largeNormalWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.wells.smallWishingWellSpawnRate = YEConfigForge.desertDecorations.wells.smallWishingWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.wells.mediumWishingWellSpawnRate = YEConfigForge.desertDecorations.wells.mediumWishingWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.wells.largeWishingWellSpawnRate = YEConfigForge.desertDecorations.wells.largeWishingWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.wells.smallDryWellSpawnRate = YEConfigForge.desertDecorations.wells.smallDryWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.wells.mediumDryWellSpawnRate = YEConfigForge.desertDecorations.wells.mediumDryWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.wells.largeDryWellSpawnRate = YEConfigForge.desertDecorations.wells.largeDryWellSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.obelisks.normalObeliskSpawnRate = YEConfigForge.desertDecorations.obelisks.normalObeliskSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.obelisks.creeperObeliskSpawnRate = YEConfigForge.desertDecorations.obelisks.creeperObeliskSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.obelisks.ruinedObeliskSpawnRate = YEConfigForge.desertDecorations.obelisks.ruinedObeliskSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.obelisks.blackstoneObeliskSpawnRate = YEConfigForge.desertDecorations.obelisks.blackstoneObeliskSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.misc.smallRuinsSpawnRate = YEConfigForge.desertDecorations.misc.smallRuinsSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.misc.giantTorchSpawnRate = YEConfigForge.desertDecorations.misc.giantTorchSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.misc.chillzoneSpawnRate = YEConfigForge.desertDecorations.misc.chillzoneSpawnRate.get();
-        YungsExtrasCommon.CONFIG.swamp.pillarSpawnRate = YEConfigForge.swamp.pillarSpawnRate.get();
-        YungsExtrasCommon.CONFIG.swamp.ogreSpawnRate = YEConfigForge.swamp.ogreSpawnRate.get();
-        YungsExtrasCommon.CONFIG.swamp.cubbySpawnRate = YEConfigForge.swamp.cubbySpawnRate.get();
-        YungsExtrasCommon.CONFIG.swamp.archSpawnRate = YEConfigForge.swamp.archSpawnRate.get();
-        YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate = YEConfigForge.swamp.doubleArchSpawnRate.get();
-        YungsExtrasCommon.CONFIG.swamp.churchSpawnRate = YEConfigForge.swamp.churchSpawnRate.get();
-        YungsExtrasCommon.CONFIG.desert.additionalBiomeWhitelist = parseList(YEConfigForge.desertDecorations.additionalBiomeWhitelist.get(), "Additional Biome Whitelist (Desert)");
-        YungsExtrasCommon.CONFIG.desert.biomeBlacklist = parseList(YEConfigForge.desertDecorations.biomeBlacklist.get(), "Biome Blacklist (Desert)");
-        YungsExtrasCommon.CONFIG.swamp.additionalBiomeWhitelist = parseList(YEConfigForge.swamp.additionalBiomeWhitelist.get(), "Additional Biome Whitelist (Swamp)");
-        YungsExtrasCommon.CONFIG.swamp.biomeBlacklist = parseList(YEConfigForge.swamp.biomeBlacklist.get(), "Biome Blacklist (Swamp)");
-    }
-
-    private static List<String> parseList(String rawStringOfList, String settingName) {
-        int strLen = rawStringOfList.length();
-
-        // Validate the string's format
-        if (strLen < 2 || rawStringOfList.charAt(0) != '[' || rawStringOfList.charAt(strLen - 1) != ']') {
-            YungsExtrasCommon.LOGGER.error("INVALID VALUE FOR SETTING '" + settingName + "'. Using empty list instead...");
-            return new ArrayList<>();
-        }
-
-        return Lists.newArrayList(rawStringOfList.substring(1, strLen - 1).split(",\\s*"));
+        // Config has been moved to data pack JSON as of 1.19
     }
 }

@@ -1,6 +1,5 @@
 package com.yungnickyoung.minecraft.yungsextras.module;
 
-import com.google.common.collect.Lists;
 import com.yungnickyoung.minecraft.yungsapi.io.JSON;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.config.YEConfigFabric;
@@ -16,12 +15,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConfigModuleFabric {
     public static final String CUSTOM_CONFIG_PATH = "YungsExtras";
-    public static final String VERSION_PATH = "fabric-1_18";
+    public static final String VERSION_PATH = "fabric-1_19";
 
     public static void init() {
         initCustomFiles();
@@ -72,8 +69,8 @@ public class ConfigModuleFabric {
                             For example, the first time you use YUNG's Extras for MC 1.16 on Forge, the 'forge-1_16' subdirectory will be created in this folder.
                             If no subdirectory for your version is created, then that version probably does not support the additional options.
 
-                            NOTE -- MOST OPTIONS CAN BE FOUND IN A CONFIG FILE OUTSIDE THIS FOLDER!
-                            For example, on Forge 1.16 the file is 'YungsExtras-forge-1_16.toml'.""";
+                            NOTE -- AS OF 1.19, ALL SPAWN RATE RELATED OPTIONS MUST NOW BE MODIFIED VIA DATA PACK.
+                            """;
             try {
                 Files.write(path, readmeText.getBytes());
             } catch (IOException e) {
@@ -92,12 +89,12 @@ public class ConfigModuleFabric {
                             #        wishing_wells.json          #
                             ######################################
 
-                            This file contains a BlockSetSelector (see below) describing the probability of a given block being chosen.
+                            This file contains a BlockStateRandomizer (see below) describing the probability of a given block being chosen.
                             These probabilities are used for Wishing Wells, which have\s
                             loot deposits at the bottom of them.
 
                             ######################################
-                            #         BlockSetSelectors          #
+                            #       BlockStateRandomizer         #
                             ######################################
 
                             Describes a set of blockstates and the probability of each blockstate being chosen.
@@ -107,7 +104,7 @@ public class ConfigModuleFabric {
                                   For example, if the total sum of all the probabilities of the entries is 0.6, then
                                   there is a 0.4 chance of the defaultBlock being selected.
 
-                            Here's an example block selector:
+                            Here's an example randomizer:
                             "entries": {
                               "minecraft:cobblestone": 0.25,
                               "minecraft:air": 0.2,
@@ -115,7 +112,7 @@ public class ConfigModuleFabric {
                             },
                             "defaultBlock": "minecraft:oak_planks"
 
-                            For each block, this selector has a 25% chance of returning cobblestone, 20% chance of choosing air,
+                            For each block, this randomizer has a 25% chance of returning cobblestone, 20% chance of choosing air,
                             10% chance of choosing stone bricks, and a 100 - (25 + 20 + 10) = 45% chance of choosing oak planks (since it's the default block).
                             """;
             try {
@@ -158,43 +155,6 @@ public class ConfigModuleFabric {
     }
 
     private static void bakeConfig(YEConfigFabric configFabric) {
-        YungsExtrasCommon.CONFIG.desert.wells.smallNormalWellSpawnRate = configFabric.desertDecorations.wells.smallNormalWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.wells.mediumNormalWellSpawnRate = configFabric.desertDecorations.wells.mediumNormalWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.wells.largeNormalWellSpawnRate = configFabric.desertDecorations.wells.largeNormalWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.wells.smallWishingWellSpawnRate = configFabric.desertDecorations.wells.smallWishingWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.wells.mediumWishingWellSpawnRate = configFabric.desertDecorations.wells.mediumWishingWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.wells.largeWishingWellSpawnRate = configFabric.desertDecorations.wells.largeWishingWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.wells.smallDryWellSpawnRate = configFabric.desertDecorations.wells.smallDryWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.wells.mediumDryWellSpawnRate = configFabric.desertDecorations.wells.mediumDryWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.wells.largeDryWellSpawnRate = configFabric.desertDecorations.wells.largeDryWellSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.obelisks.normalObeliskSpawnRate = configFabric.desertDecorations.obelisks.normalObeliskSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.obelisks.creeperObeliskSpawnRate = configFabric.desertDecorations.obelisks.creeperObeliskSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.obelisks.ruinedObeliskSpawnRate = configFabric.desertDecorations.obelisks.ruinedObeliskSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.obelisks.blackstoneObeliskSpawnRate = configFabric.desertDecorations.obelisks.blackstoneObeliskSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.misc.smallRuinsSpawnRate = configFabric.desertDecorations.misc.smallRuinsSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.misc.giantTorchSpawnRate = configFabric.desertDecorations.misc.giantTorchSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.misc.chillzoneSpawnRate = configFabric.desertDecorations.misc.chillzoneSpawnRate;
-        YungsExtrasCommon.CONFIG.swamp.pillarSpawnRate = configFabric.swampStructures.pillarSpawnRate;
-        YungsExtrasCommon.CONFIG.swamp.ogreSpawnRate = configFabric.swampStructures.ogreSpawnRate;
-        YungsExtrasCommon.CONFIG.swamp.cubbySpawnRate = configFabric.swampStructures.cubbySpawnRate;
-        YungsExtrasCommon.CONFIG.swamp.archSpawnRate = configFabric.swampStructures.archSpawnRate;
-        YungsExtrasCommon.CONFIG.swamp.doubleArchSpawnRate = configFabric.swampStructures.doubleArchSpawnRate;
-        YungsExtrasCommon.CONFIG.swamp.churchSpawnRate = configFabric.swampStructures.churchSpawnRate;
-        YungsExtrasCommon.CONFIG.desert.additionalBiomeWhitelist = parseList(configFabric.desertDecorations.additionalBiomeWhitelist, "Additional Biome Whitelist (Desert)");
-        YungsExtrasCommon.CONFIG.desert.biomeBlacklist = parseList(configFabric.desertDecorations.biomeBlacklist, "Biome Blacklist (Desert)");
-        YungsExtrasCommon.CONFIG.swamp.additionalBiomeWhitelist = parseList(configFabric.swampStructures.additionalBiomeWhitelist, "Additional Biome Whitelist (Swamp)");
-        YungsExtrasCommon.CONFIG.swamp.biomeBlacklist = parseList(configFabric.swampStructures.biomeBlacklist, "Biome Blacklist (Swamp)");
-    }
-
-    private static List<String> parseList(String rawStringOfList, String settingName) {
-        int strLen = rawStringOfList.length();
-
-        // Validate the string's format
-        if (strLen < 2 || rawStringOfList.charAt(0) != '[' || rawStringOfList.charAt(strLen - 1) != ']') {
-            YungsExtrasCommon.LOGGER.error("INVALID VALUE FOR SETTING '" + settingName + "'. Using empty list instead...");
-            return new ArrayList<>();
-        }
-
-        return Lists.newArrayList(rawStringOfList.substring(1, strLen - 1).split(",\\s*"));
+        // Config has been moved to data pack JSON as of 1.19
     }
 }

@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -13,7 +14,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.material.Material;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Random;
 
 @ParametersAreNonnullByDefault
 public class DesertObeliskFeature extends AbstractNbtFeature<ResourceLocationFeatureConfiguration> {
@@ -24,7 +24,7 @@ public class DesertObeliskFeature extends AbstractNbtFeature<ResourceLocationFea
     @Override
     public boolean place(FeaturePlaceContext<ResourceLocationFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
-        Random rand = context.random();
+        RandomSource randomSource = context.random();
         BlockPos pos = context.origin();
         ResourceLocation location = context.config().getLocation();
 
@@ -55,7 +55,7 @@ public class DesertObeliskFeature extends AbstractNbtFeature<ResourceLocationFea
         if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
 
         // Generate the obelisk
-        StructureTemplate template = this.createTemplateFromCenter(location, level, rand, surfacePos.above());
+        StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos.above());
         return template != null;
     }
 }
