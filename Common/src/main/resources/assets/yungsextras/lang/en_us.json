@@ -97,6 +97,7 @@
   "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[3]": "List must be comma-separated values enclosed in square brackets.",
   "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[4]": "Entries must have the mod namespace included.",
   "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[5]": "For example: \"[minecraft:plains, byg:alps]\"",
+
   "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist": "Blacklisted Biomes (Swamp)",
   "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[0]": "List of biomes that will NOT have Swamp Structures.",
   "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[1]": "By default, all Swamp biomes will automatically have Swamp Structures,",

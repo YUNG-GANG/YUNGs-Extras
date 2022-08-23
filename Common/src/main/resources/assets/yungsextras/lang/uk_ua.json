@@ -1,0 +1,127 @@
+{
+  "text.autoconfig.yungsextras-fabric-1_19.title": "YUNG's Декорації",
+
+  "text.autoconfig.yungsextras-fabric-1_19.category.Desert Decorations": "Пустельні декірації",
+  "text.autoconfig.yungsextras-fabric-1_19.category.Swamp Structures": "Болотні декорації",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations": "Пустельні декірації",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.@Tooltip": "Пустельні декірації",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures": "Болотні споруди",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.@Tooltip": "Болотні споруди",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.additionalBiomeWhitelist": "Білий список біомів (Пустеля)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.additionalBiomeWhitelist.@Tooltip[0]": "Список біомів, які матимуть §6Пустельні декорації§f.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.additionalBiomeWhitelist.@Tooltip[1]": "За замовчуванням усі біоми (включно з модифікованими біоми) із",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.additionalBiomeWhitelist.@Tooltip[2]": "категорією §6«Пустеля» §fвключені автоматично, і їх не потрібно додавати сюди.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.additionalBiomeWhitelist.@Tooltip[3]": "Список має містити значення, розділені комами, у квадратних дужках.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.additionalBiomeWhitelist.@Tooltip[4]": "Записи повинні містити просторові імена модів.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.additionalBiomeWhitelist.@Tooltip[5]": "Наприклад: \"[minecraft:plains, byg:alps]\"",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.biomeBlacklist": "Чорний список біомів (Пустеля)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.biomeBlacklist.@Tooltip[0]": "Список біомів, які НЕ матимуть §6Пустельних декорацій§f.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.biomeBlacklist.@Tooltip[1]": "За замовчуванням усі біоми Пустелі автоматично матимуть Пустельні декорації,",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.biomeBlacklist.@Tooltip[2]": "тож вам потрібно лише додати в чорний список біоми з категорією Пустелі, в",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.biomeBlacklist.@Tooltip[3]": "яких ви не хочете бачити Пустельні декорації",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.biomeBlacklist.@Tooltip[4]": "Список має містити значення, розділені комами, у квадратних дужках.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.biomeBlacklist.@Tooltip[5]": "Записи повинні містити просторові імена модів.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.biomeBlacklist.@Tooltip[6]": "Наприклад: \"[minecraft:desert, byg:dunes]\"",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells": "Пустельні криниці",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.@Tooltip[0]": "Налаштування для різних варіацій §6пустельних криниць§f.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.@Tooltip[1]": "Коефіцієнт появи кожного типу криниці в чанку становить 1/N,",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.@Tooltip[2]": "де N — значення конфігурації, встановлене нижче для цієї криниці.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.@Tooltip[3]": "Наприклад якщо значення дорівнює 1000, то ймовірність появи 1 із 1000 на чанк.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks": "Пустельні обеліски",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.@Tooltip[0]": "Налаштування для різних варіацій §6пустельних обелісків§f.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.@Tooltip[1]": "Коефіцієнт появи кожного типу обеліску в чанку становить 1/N,",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.@Tooltip[2]": "де N — значення конфігурації, встановлене нижче для цього обеліску.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.@Tooltip[3]": "Наприклад якщо значення дорівнює 1000, то ймовірність появи 1 із 1000 на чанк.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc": "Різноманітні пустельни споруди",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.@Tooltip[0]": "Налаштування для різноманітних §6пустельних споруд§f.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.@Tooltip[1]": "Коефіцієнт появи кожного типу споруди в чанку становить 1/N,",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.@Tooltip[2]": "де N — значення конфігурації, встановлене нижче для цієї споруди.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.@Tooltip[3]": "Наприклад якщо значення дорівнює 1000, то ймовірність появи 1 із 1000 на чанк.",
+
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.smallNormalWellSpawnRate": "Коефіцієнт появи криниці (Мала)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.smallNormalWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи малих криниць.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.mediumNormalWellSpawnRate": "Коефіцієнт появи криниці (Середня)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.mediumNormalWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи середніх криниць.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.largeNormalWellSpawnRate": "Коефіцієнт появи криниці (Велика)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.largeNormalWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи великих криниць.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.smallWishingWellSpawnRate": "Коефіцієнт появи криниці бажань (Мала)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.smallWishingWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи малих криниць бажань.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.mediumWishingWellSpawnRate": "Коефіцієнт появи криниці бажань (Середня)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.mediumWishingWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи середніх криниць бажань.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.largeWishingWellSpawnRate": "Коефіцієнт появи криниці бажань (Велика)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.largeWishingWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи великих криниць бажань.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.smallDryWellSpawnRate": "Коефіцієнт появи висушеної криниці (Мала)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.smallDryWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи малих висушених криниць.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.mediumDryWellSpawnRate": "Коефіцієнт появи висушеної криниці (Середня)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.mediumDryWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи середніх висушених криниць.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.largeDryWellSpawnRate": "Коефіцієнт появи висушеної криниці (Велика)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.wells.largeDryWellSpawnRate.@Tooltip": "Визначає коефіцієнт появи великих висушених криниць.",
+
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.normalObeliskSpawnRate": "Коефіцієнт появи обеліску",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.normalObeliskSpawnRate.@Tooltip": "Визначає коефіцієнт появи обелісків.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.creeperObeliskSpawnRate": "Коефіцієнт появи точеного обеліску",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.creeperObeliskSpawnRate.@Tooltip": "Визначає коефіцієнт появи точених обелісків.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.ruinedObeliskSpawnRate": "Коефіцієнт появи зруйнованого обеліску",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.ruinedObeliskSpawnRate.@Tooltip": "Визначає коефіцієнт появи зруйнованих обелісків.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.blackstoneObeliskSpawnRate": "Коефіцієнт появи чорнокам'яного обеліску",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.obelisks.blackstoneObeliskSpawnRate.@Tooltip": "Визначає коефіцієнт появи чорнокам'яних обелісків.",
+
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.smallRuinsSpawnRate": "Коефіцієнт появи руїн (Малих)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.smallRuinsSpawnRate.@Tooltip": "Визначає коефіцієнт появи малих руїн.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.giantTorchSpawnRate": "Коефіцієнт появи палаючого фортпосту",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.giantTorchSpawnRate.@Tooltip": "Визначає коефіцієнт паляючих фортпостів.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.chillzoneSpawnRate": "Коефіцієнт появи покинотого місця для відпочинку",
+  "text.autoconfig.yungsextras-fabric-1_19.option.desertDecorations.misc.chillzoneSpawnRate.@Tooltip": "Визначає коефіцієнт появи покинутих місць для відпочинку.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist": "Білий список біомів (Болото)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[0]": "Список біомів, які матимуть §6болотні споруди§f.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[1]": "За замовчуванням усі біоми (включаючи модифіковані біоми) із категорією",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[2]": "§6«Болото» §fвключаються автоматично, і їх не потрібно додавати сюди.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[3]": "Список має містити значення, розділені комами, у квадратних дужках.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[4]": "Записи повинні містити просторові імена модів.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.additionalBiomeWhitelist.@Tooltip[5]": "Наприклад: \"[minecraft:plains, byg:alps]\"",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist": "Чорний список біомів (Болото)",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[0]": "Список біомів, які не матимуть §6болотні споруди§f.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[1]": "За замовчуванням усі біоми Боліт автоматично матимуть Болотні структури,",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[2]": "тому вам потрібно лише додати в чорний список біоми з категорією §6«Болото»§f,",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[3]": "у яких ви не хочете створювати Болотні структури.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[4]": "Список має містити значення, розділені комами, у квадратних дужках.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[5]": "Записи повинні містити просторові імена модів.",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.biomeBlacklist.@Tooltip[6]": "Наприклад: \"[minecraft:desert, byg:dunes]\"",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.pillarSpawnRate": "Коефіцієнт появи зруйнованих болітних колон",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.pillarSpawnRate.@Tooltip": "Визначає коефіцієнт появи зруйнованих болітних колон.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.ogreSpawnRate": "Коефіцієнт появи туалетів",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.ogreSpawnRate.@Tooltip": "Визначає коефіцієнт появи туалетів.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.cubbySpawnRate": "Коефіцієнт появи болотних закутків",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.cubbySpawnRate.@Tooltip": "Визначає коефіцієнт появи болотних закутків.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.archSpawnRate": "Коефіцієнт появи зруйнованих арок",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.archSpawnRate.@Tooltip": "Визначає коефіцієнт появи зруйнованих арок.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.doubleArchSpawnRate": "Коефіцієнт появи зруйнованих подвійних арок",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.doubleArchSpawnRate.@Tooltip": "Визначає коефіцієнт появи зруйнованих подвійних арок.",
+
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.churchSpawnRate": "Коефіцієнт появи зруйнованих брам",
+  "text.autoconfig.yungsextras-fabric-1_19.option.swampStructures.churchSpawnRate.@Tooltip": "Визначає коефіцієнт появи зруйнованих брам."
+}
