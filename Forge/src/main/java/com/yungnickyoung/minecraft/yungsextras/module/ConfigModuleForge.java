@@ -5,7 +5,7 @@ import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.config.YEConfigForge;
 import com.yungnickyoung.minecraft.yungsextras.world.WishingWellChances;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.WorldEvent;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
@@ -29,7 +29,7 @@ public class ConfigModuleForge {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(ConfigModuleForge::onConfigChange);
     }
 
-    private static void onWorldLoad(WorldEvent.Load event) {
+    private static void onWorldLoad(LevelEvent.Load event) {
         bakeConfig();
     }
 
