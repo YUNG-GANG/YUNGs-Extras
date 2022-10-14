@@ -1,45 +1,48 @@
 package com.yungnickyoung.minecraft.yungsextras.module;
 
+import com.yungnickyoung.minecraft.yungsapi.api.autoregister.AutoRegister;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
-import com.yungnickyoung.minecraft.yungsextras.services.Services;
 import com.yungnickyoung.minecraft.yungsextras.world.config.DesertWellFeatureConfiguration;
 import com.yungnickyoung.minecraft.yungsextras.world.config.ResourceLocationFeatureConfiguration;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.*;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
+@AutoRegister(YungsExtrasCommon.MOD_ID)
 public class FeatureModule {
     /* Desert Features */
+    @AutoRegister("desert_well")
     public static Feature<DesertWellFeatureConfiguration> DESERT_WELL = new DesertWellFeature();
+
+    @AutoRegister("desert_obelisk")
     public static Feature<ResourceLocationFeatureConfiguration> DESERT_OBELISK = new DesertObeliskFeature();
+
+    @AutoRegister("desert_giant_torch")
     public static Feature<NoneFeatureConfiguration> DESERT_GIANT_TORCH = new DesertGiantTorchFeature();
+
+    @AutoRegister("desert_ruins_0")
     public static Feature<NoneFeatureConfiguration> DESERT_RUINS_0 = new DesertSmallRuinsFeature();
+
+    @AutoRegister("desert_chillzone")
     public static Feature<NoneFeatureConfiguration> DESERT_CHILLZONE = new ChillzoneDesertFeature();
 
     /* Swamp Features */
+    @AutoRegister("swamp_pillar")
     public static Feature<ResourceLocationFeatureConfiguration> SWAMP_PILLAR = new SwampPillarFeature();
+
+    @AutoRegister("swamp_ogre")
     public static Feature<ResourceLocationFeatureConfiguration> SWAMP_OGRE = new SwampOgreFeature();
+
+    @AutoRegister("swamp_cubby")
     public static Feature<ResourceLocationFeatureConfiguration> SWAMP_CUBBY = new SwampCubbyFeature();
+
+    @AutoRegister("swamp_arch")
     public static Feature<ResourceLocationFeatureConfiguration> SWAMP_ARCH = new SwampArchFeature();
+
+    @AutoRegister("swamp_double_arch")
     public static Feature<ResourceLocationFeatureConfiguration> SWAMP_DOUBLE_ARCH = new SwampDoubleArchFeature();
+
+    @AutoRegister("swamp_church")
     public static Feature<ResourceLocationFeatureConfiguration> SWAMP_CHURCH = new SwampChurchFeature();
-
-    public static void init() {
-        /* Desert Features */
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert_well"), DESERT_WELL);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert_obelisk"), DESERT_OBELISK);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert_giant_torch"), DESERT_GIANT_TORCH);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert_ruins_0"), DESERT_RUINS_0);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert_chillzone"), DESERT_CHILLZONE);
-
-        /* Swamp Features */
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "swamp_pillar"), SWAMP_PILLAR);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "swamp_ogre"), SWAMP_OGRE);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "swamp_cubby"), SWAMP_CUBBY);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "swamp_arch"), SWAMP_ARCH);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "swamp_double_arch"), SWAMP_DOUBLE_ARCH);
-        Services.REGISTRY.registerFeature(new ResourceLocation(YungsExtrasCommon.MOD_ID, "swamp_church"), SWAMP_CHURCH);
-    }
 }

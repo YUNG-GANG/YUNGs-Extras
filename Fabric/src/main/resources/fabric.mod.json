@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "yungsextras",
+  "id": "${mod_id}",
   "version": "${version}",
-  "name": "YUNG's Extras",
-  "description": "Extra structures and vanilla+ content added throughout the game",
+  "name": "${mod_full_name}",
+  "description": "${mod_description}",
   "authors": [
     "YUNGNICKYOUNG",
     "Acarii"
@@ -32,6 +32,6 @@
     "minecraft": ">=1.19.2",
     "cloth-config2": ">=8.0.75",
     "java": ">=17",
-    "yungsapi": ">=1.19.2-Fabric-3.5.0"
+    "yungsapi": ">=${minecraft_version}-Fabric-${yungsapi_version}"
   }
 }
