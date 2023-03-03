@@ -2,14 +2,9 @@ package com.yungnickyoung.minecraft.yungsextras.module;
 
 import com.yungnickyoung.minecraft.yungsapi.io.JSON;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
-import com.yungnickyoung.minecraft.yungsextras.config.YEConfigForge;
 import com.yungnickyoung.minecraft.yungsextras.world.WishingWellChances;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.level.LevelEvent;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 import java.io.File;
@@ -20,23 +15,15 @@ import java.nio.file.Paths;
 
 public class ConfigModuleForge {
     public static final String CUSTOM_CONFIG_PATH = "YungsExtras";
-    public static final String VERSION_PATH = "forge-1_19";
+    public static final String VERSION_PATH = "forge-1_19_3";
 
     public static void init() {
         initCustomFiles();
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, YEConfigForge.SPEC, "YungsExtras-forge-1_19.toml");
         MinecraftForge.EVENT_BUS.addListener(ConfigModuleForge::onWorldLoad);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(ConfigModuleForge::onConfigChange);
     }
 
     private static void onWorldLoad(LevelEvent.Load event) {
-        bakeConfig();
-    }
-
-    private static void onConfigChange(ModConfigEvent event) {
-        if (event.getConfig().getSpec() == YEConfigForge.SPEC) {
-            bakeConfig();
-        }
+        loadJSON();
     }
 
     private static void initCustomFiles() {
@@ -158,9 +145,5 @@ public class ConfigModuleForge {
                 YungsExtrasCommon.LOGGER.error("Using default configuration...");
             }
         }
-    }
-
-    private static void bakeConfig() {
-        // Config has been moved to data pack JSON as of 1.19
     }
 }

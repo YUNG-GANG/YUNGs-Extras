@@ -2,13 +2,8 @@ package com.yungnickyoung.minecraft.yungsextras.module;
 
 import com.yungnickyoung.minecraft.yungsapi.io.JSON;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
-import com.yungnickyoung.minecraft.yungsextras.config.YEConfigFabric;
 import com.yungnickyoung.minecraft.yungsextras.world.WishingWellChances;
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.ConfigHolder;
-import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.world.InteractionResult;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,19 +13,10 @@ import java.nio.file.Paths;
 
 public class ConfigModuleFabric {
     public static final String CUSTOM_CONFIG_PATH = "YungsExtras";
-    public static final String VERSION_PATH = "fabric-1_19";
+    public static final String VERSION_PATH = "fabric-1_19_3";
 
     public static void init() {
         initCustomFiles();
-        AutoConfig.register(YEConfigFabric.class, Toml4jConfigSerializer::new);
-        AutoConfig.getConfigHolder(YEConfigFabric.class).registerSaveListener(ConfigModuleFabric::bakeConfig);
-        AutoConfig.getConfigHolder(YEConfigFabric.class).registerLoadListener(ConfigModuleFabric::bakeConfig);
-        bakeConfig(AutoConfig.getConfigHolder(YEConfigFabric.class).get());
-    }
-
-    private static InteractionResult bakeConfig(ConfigHolder<YEConfigFabric> configHolder, YEConfigFabric configFabric) {
-        bakeConfig(configFabric);
-        return InteractionResult.SUCCESS;
     }
 
     private static void initCustomFiles() {
@@ -152,9 +138,5 @@ public class ConfigModuleFabric {
                 YungsExtrasCommon.LOGGER.error("Using default configuration...");
             }
         }
-    }
-
-    private static void bakeConfig(YEConfigFabric configFabric) {
-        // Config has been moved to data pack JSON as of 1.19
     }
 }

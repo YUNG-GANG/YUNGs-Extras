@@ -1,7 +1,7 @@
 package com.yungnickyoung.minecraft.yungsextras.world.processor;
 
 import com.google.common.collect.Sets;
-import com.yungnickyoung.minecraft.yungsapi.world.BlockStateRandomizer;
+import com.yungnickyoung.minecraft.yungsapi.api.world.randomize.BlockStateRandomizer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;

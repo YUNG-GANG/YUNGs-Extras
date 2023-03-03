@@ -3,7 +3,7 @@ package com.yungnickyoung.minecraft.yungsextras.module;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -24,8 +24,8 @@ public class BiomeModificationModuleFabric {
         // Remove vanilla wells
         BiomeModifications.create(new ResourceLocation(YungsExtrasCommon.MOD_ID, "vanilla_desert_well_removal"))
                 .add(ModificationPhase.REMOVALS,
-                        biomeSelectionContext -> biomeSelectionContext.hasBuiltInPlacedFeature(MiscOverworldPlacements.DESERT_WELL.value()),
-                        modificationContext -> modificationContext.getGenerationSettings().removeBuiltInFeature(MiscOverworldPlacements.DESERT_WELL.value()));
+                        biomeSelectionContext -> biomeSelectionContext.hasPlacedFeature(MiscOverworldPlacements.DESERT_WELL),
+                        modificationContext -> modificationContext.getGenerationSettings().removeFeature(MiscOverworldPlacements.DESERT_WELL));
 
         /* Desert Features */
         // Wells
@@ -79,14 +79,14 @@ public class BiomeModificationModuleFabric {
     private static void addToDesertBiome(String featurePath, GenerationStep.Decoration step) {
         BiomeModifications.create(new ResourceLocation(YungsExtrasCommon.MOD_ID, featurePath))
                 .add(ModificationPhase.ADDITIONS,
-                        context -> context.hasTag(TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(YungsExtrasCommon.MOD_ID, "has_structure/desert_decorations"))),
-                        context -> context.getGenerationSettings().addFeature(step, ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, new ResourceLocation(YungsExtrasCommon.MOD_ID, featurePath))));
+                        context -> context.hasTag(TagKey.create(Registries.BIOME, new ResourceLocation(YungsExtrasCommon.MOD_ID, "has_structure/desert_decorations"))),
+                        context -> context.getGenerationSettings().addFeature(step, ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(YungsExtrasCommon.MOD_ID, featurePath))));
     }
 
     private static void addToSwampBiome(String featurePath, GenerationStep.Decoration step) {
         BiomeModifications.create(new ResourceLocation(YungsExtrasCommon.MOD_ID, featurePath))
                 .add(ModificationPhase.ADDITIONS,
-                        context -> context.hasTag(TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(YungsExtrasCommon.MOD_ID, "has_structure/swamp_structures"))),
-                        context -> context.getGenerationSettings().addFeature(step, ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, new ResourceLocation(YungsExtrasCommon.MOD_ID, featurePath))));
+                        context -> context.hasTag(TagKey.create(Registries.BIOME, new ResourceLocation(YungsExtrasCommon.MOD_ID, "has_structure/swamp_structures"))),
+                        context -> context.getGenerationSettings().addFeature(step, ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(YungsExtrasCommon.MOD_ID, featurePath))));
     }
 }
