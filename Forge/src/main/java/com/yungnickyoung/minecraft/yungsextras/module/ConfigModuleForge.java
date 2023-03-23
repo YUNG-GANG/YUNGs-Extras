@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 
 public class ConfigModuleForge {
     public static final String CUSTOM_CONFIG_PATH = "YungsExtras";
-    public static final String VERSION_PATH = "forge-1_19_3";
+    public static final String VERSION_PATH = "forge-1_19_4";
 
     public static void init() {
         initCustomFiles();
