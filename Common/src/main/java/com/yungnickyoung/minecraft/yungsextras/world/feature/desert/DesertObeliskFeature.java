@@ -11,7 +11,6 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import net.minecraft.world.level.material.Material;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -43,16 +42,16 @@ public class DesertObeliskFeature extends AbstractNbtFeature<ResourceLocationFea
 
         // Check to avoid bits of the obelisk floating
         mutable.set(cornerPos);
-        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
+        if (!level.getBlockState(mutable).isSolid()) return false;
 
         mutable.set(cornerPos).move(Direction.SOUTH, 3);
-        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
+        if (!level.getBlockState(mutable).isSolid()) return false;
 
         mutable.set(cornerPos).move(Direction.EAST, 3);
-        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
+        if (!level.getBlockState(mutable).isSolid()) return false;
 
         mutable.set(cornerPos).move(Direction.SOUTH, 3).move(Direction.EAST, 3);
-        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
+        if (!level.getBlockState(mutable).isSolid()) return false;
 
         // Generate the obelisk
         StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos.above());

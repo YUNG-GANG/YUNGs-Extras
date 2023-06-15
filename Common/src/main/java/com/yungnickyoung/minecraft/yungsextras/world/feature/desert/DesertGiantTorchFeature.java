@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import net.minecraft.world.level.material.Material;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -45,16 +44,16 @@ public class DesertGiantTorchFeature extends AbstractNbtFeature<NoneFeatureConfi
 
         // Check to avoid bits of the feature floating
         mutable.set(cornerPos).move(Direction.SOUTH, 1).move(Direction.EAST, 1);
-        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
+        if (!level.getBlockState(mutable).isSolid()) return false;
 
         mutable.set(cornerPos).move(Direction.SOUTH, 1).move(Direction.EAST, 2);
-        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
+        if (!level.getBlockState(mutable).isSolid()) return false;
 
         mutable.set(cornerPos).move(Direction.SOUTH, 2).move(Direction.EAST, 1);
-        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
+        if (!level.getBlockState(mutable).isSolid()) return false;
 
         mutable.set(cornerPos).move(Direction.SOUTH, 2).move(Direction.EAST, 2);
-        if (level.getBlockState(mutable).getMaterial() != Material.SAND) return false;
+        if (!level.getBlockState(mutable).isSolid()) return false;
 
         // Generate the feature
         StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos.above());

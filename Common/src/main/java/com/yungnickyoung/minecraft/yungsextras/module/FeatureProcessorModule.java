@@ -12,8 +12,8 @@ public class FeatureProcessorModule {
     public static List<INbtFeatureProcessor> PROCESSORS = new ArrayList<>();
 
     /* Processors */
-    public static INbtFeatureProcessor DESERT_WELL_PROCESSOR = register(new DesertWellProcessor());
     public static INbtFeatureProcessor SWAMP_FEATURE_PROCESSOR = register(new SwampFeatureProcessor());
+    public static INbtFeatureProcessor DESERT_WELL_PROCESSOR = register(new DesertWellProcessor());
 
     private static INbtFeatureProcessor register(INbtFeatureProcessor processor) {
         PROCESSORS.add(processor);

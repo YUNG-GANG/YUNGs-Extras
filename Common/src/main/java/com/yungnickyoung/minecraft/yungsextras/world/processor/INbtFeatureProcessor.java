@@ -4,7 +4,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.SlabType;
@@ -12,7 +17,6 @@ import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import net.minecraft.world.level.material.Material;
 
 import java.util.function.Supplier;
 
@@ -47,7 +51,7 @@ public interface INbtFeatureProcessor {
         // Generate vertical pillar down
         BlockPos.MutableBlockPos mutable = pos.below().mutable();
         BlockState currBlock = level.getBlockState(mutable);
-        while (mutable.getY() > 0 && (currBlock.getMaterial() == Material.AIR || currBlock.getMaterial() == Material.WATER || currBlock.getMaterial() == Material.LAVA)) {
+        while (mutable.getY() > 0 && (currBlock.isAir() || currBlock.liquid())) {
             level.setBlock(mutable, legBlockSupplier.get(), 2);
             mutable.move(Direction.DOWN);
             currBlock = level.getBlockState(mutable);
