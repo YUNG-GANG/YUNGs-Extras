@@ -35,4 +35,4 @@ issueTrackerURL="https://github.com/yungnickyoung/YUNGs-Extras/issues"
     side="BOTH"
 
 #[[mixins]]
-#    config = "yungsmenutweaks.mixins.json"
+#    config = "yungsextras.mixins.json"
