@@ -1,0 +1,23 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#yungsextras:has_structure/desert_decorations",
+  "features": [
+    "yungsextras:desert/wells/desert_well_sm",
+    "yungsextras:desert/wells/desert_well_md",
+    "yungsextras:desert/wells/desert_well_lg",
+    "yungsextras:desert/wells/desert_dry_well_sm",
+    "yungsextras:desert/wells/desert_dry_well_md",
+    "yungsextras:desert/wells/desert_dry_well_lg",
+    "yungsextras:desert/wells/desert_wishing_well_sm",
+    "yungsextras:desert/wells/desert_wishing_well_md",
+    "yungsextras:desert/wells/desert_wishing_well_lg",
+    "yungsextras:desert/obelisks/desert_obelisk",
+    "yungsextras:desert/obelisks/desert_obelisk_creeper",
+    "yungsextras:desert/obelisks/desert_obelisk_ruined",
+    "yungsextras:desert/obelisks/desert_obelisk_rare",
+    "yungsextras:desert/misc/desert_giant_torch",
+    "yungsextras:desert/misc/desert_ruins_0",
+    "yungsextras:desert/misc/desert_chillzone"
+  ],
+  "step": "surface_structures"
+}
