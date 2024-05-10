@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "#yungsextras:has_structure/vanilla_desert_well",
+  "features": "minecraft:desert_well",
+  "steps": "surface_structures"
+}
