@@ -2,6 +2,8 @@ package com.yungnickyoung.minecraft.yungsextras.world.processor;
 
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -10,12 +12,15 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DesertWellProcessor implements INbtFeatureProcessor {
-    private static final ResourceLocation EXTRA = new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert/extra_archeology");
+    private static final ResourceKey<LootTable> EXTRA = ResourceKey.create(
+            Registries.LOOT_TABLE,
+            ResourceLocation.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/extra_archeology"));
 
     @Override
     public void processTemplate(StructureTemplate template, WorldGenLevel level, RandomSource random, BlockPos cornerPos, BlockPos centerPos, StructurePlaceSettings placementSettings) {
@@ -54,7 +59,7 @@ public class DesertWellProcessor implements INbtFeatureProcessor {
         }
     }
 
-    private void placeSusSand(WorldGenLevel level, BlockPos pos, ResourceLocation lootTable) {
+    private void placeSusSand(WorldGenLevel level, BlockPos pos, ResourceKey<LootTable> lootTable) {
         level.setBlock(pos, Blocks.SUSPICIOUS_SAND.defaultBlockState(), 3);
         level.getBlockEntity(pos, BlockEntityType.BRUSHABLE_BLOCK).ifPresent((blockEntity) -> {
             blockEntity.setLootTable(lootTable, pos.asLong());

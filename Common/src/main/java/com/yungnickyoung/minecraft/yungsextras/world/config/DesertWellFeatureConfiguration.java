@@ -23,7 +23,7 @@ public class DesertWellFeatureConfiguration implements FeatureConfiguration {
     }
 
     public DesertWellFeatureConfiguration(String id, int radius) {
-        this.location = new ResourceLocation(YungsExtrasCommon.MOD_ID, id);
+        this.location = ResourceLocation.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, id);
         this.radius = radius;
     }
 

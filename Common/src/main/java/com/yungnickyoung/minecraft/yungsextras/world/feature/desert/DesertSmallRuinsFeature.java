@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class DesertSmallRuinsFeature extends AbstractNbtFeature<NoneFeatureConfiguration> {
-    private static final ResourceLocation location = new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert/misc/ruins_0");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/misc/ruins_0");
 
     public DesertSmallRuinsFeature() {
         super(NoneFeatureConfiguration.CODEC);
@@ -56,7 +56,7 @@ public class DesertSmallRuinsFeature extends AbstractNbtFeature<NoneFeatureConfi
         if (!level.getBlockState(mutable).isSolid()) return false;
 
         // Generate the feature
-        StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos);
+        StructureTemplate template = this.createTemplateFromCenter(ID, level, randomSource, surfacePos);
         return template != null;
     }
 }

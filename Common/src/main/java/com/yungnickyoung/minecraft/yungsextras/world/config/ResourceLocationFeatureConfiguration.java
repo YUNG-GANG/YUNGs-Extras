@@ -20,7 +20,7 @@ public class ResourceLocationFeatureConfiguration implements FeatureConfiguratio
     }
 
     public ResourceLocationFeatureConfiguration(String id) {
-        this.location = new ResourceLocation(YungsExtrasCommon.MOD_ID, id);
+        this.location = ResourceLocation.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, id);
     }
 
     public ResourceLocation getLocation() {

@@ -1,6 +1,6 @@
 package com.yungnickyoung.minecraft.yungsextras.world.placement;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.yungnickyoung.minecraft.yungsextras.module.PlacementModifierTypeModule;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 @MethodsReturnNonnullByDefault
 public class RngInitializerPlacement extends PlacementModifier {
     private static final RngInitializerPlacement INSTANCE = new RngInitializerPlacement();
-    public static final Codec<PlacementModifier> CODEC = Codec.unit(() -> INSTANCE);
+    public static final MapCodec<PlacementModifier> CODEC = MapCodec.unit(() -> INSTANCE);
 
     public static RngInitializerPlacement randomize() {
         return INSTANCE;

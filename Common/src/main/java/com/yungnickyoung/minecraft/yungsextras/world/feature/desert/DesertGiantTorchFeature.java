@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class DesertGiantTorchFeature extends AbstractNbtFeature<NoneFeatureConfiguration> {
-    private static final ResourceLocation location = new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert/misc/giant_torch");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/misc/giant_torch");
 
     public DesertGiantTorchFeature() {
         super(NoneFeatureConfiguration.CODEC);
@@ -56,7 +56,7 @@ public class DesertGiantTorchFeature extends AbstractNbtFeature<NoneFeatureConfi
         if (!level.getBlockState(mutable).isSolid()) return false;
 
         // Generate the feature
-        StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos.above());
+        StructureTemplate template = this.createTemplateFromCenter(ID, level, randomSource, surfacePos.above());
         return template != null;
     }
 }

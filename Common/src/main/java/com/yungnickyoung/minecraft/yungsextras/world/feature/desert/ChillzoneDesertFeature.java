@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class ChillzoneDesertFeature extends AbstractNbtFeature<NoneFeatureConfiguration> {
-    private static final ResourceLocation location = new ResourceLocation(YungsExtrasCommon.MOD_ID, "desert/misc/chillzone");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/misc/chillzone");
 
     public ChillzoneDesertFeature() {
         super(NoneFeatureConfiguration.CODEC);
@@ -56,7 +56,7 @@ public class ChillzoneDesertFeature extends AbstractNbtFeature<NoneFeatureConfig
         if (!level.getBlockState(mutable).isSolid()) return false;
 
         // Generate the feature
-        StructureTemplate template = this.createTemplateFromCenter(location, level, rand, surfacePos.above());
+        StructureTemplate template = this.createTemplateFromCenter(ID, level, rand, surfacePos.above());
         return template != null;
     }
 }
