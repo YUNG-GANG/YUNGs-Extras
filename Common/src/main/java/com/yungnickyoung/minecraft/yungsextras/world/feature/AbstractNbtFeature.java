@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.world.processor.INbtFeatureProcessor;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -32,7 +32,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
      * @param centerPos The position to generate the feature at. This will be the center of the feature.
      * @return The generated Template
      */
-    protected StructureTemplate createTemplateFromCenter(ResourceLocation id, WorldGenLevel level, RandomSource rand, BlockPos centerPos) {
+    protected StructureTemplate createTemplateFromCenter(Identifier id, WorldGenLevel level, RandomSource rand, BlockPos centerPos) {
         return createTemplateFromCenterWithPlacement(id, level, rand, centerPos, new StructurePlaceSettings());
     }
 
@@ -46,7 +46,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
      * @return The generated Template
      */
     protected StructureTemplate createTemplateFromCenterWithPlacement(
-            ResourceLocation id,
+            Identifier id,
             WorldGenLevel level,
             RandomSource randomSource,
             BlockPos centerPos,
@@ -82,7 +82,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
      * @param cornerPos The position to generate the feature at. This is the lowest x-y-z corner of the feature.
      * @return The generated Template
      */
-    protected StructureTemplate createTemplateFromCorner(ResourceLocation id, WorldGenLevel level, RandomSource randomSource, BlockPos cornerPos) {
+    protected StructureTemplate createTemplateFromCorner(Identifier id, WorldGenLevel level, RandomSource randomSource, BlockPos cornerPos) {
         return createTemplateFromCornerWithPlacement(id, level, randomSource, cornerPos, new StructurePlaceSettings());
     }
 
@@ -96,7 +96,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
      * @return The generated Template
      */
     protected StructureTemplate createTemplateFromCornerWithPlacement(
-            ResourceLocation id,
+            Identifier id,
             WorldGenLevel level,
             RandomSource randomSource,
             BlockPos cornerPos,

@@ -101,10 +101,10 @@ public interface INbtFeatureProcessor {
     default BlockState getWallBlockWithState(BlockState input, BlockState source) {
         if (input.getBlock() instanceof WallBlock && source.getBlock() instanceof WallBlock) {
             return input
-                    .setValue(WallBlock.NORTH_WALL, source.hasProperty(WallBlock.NORTH_WALL) ? source.getValue(WallBlock.NORTH_WALL) : WallSide.NONE)
-                    .setValue(WallBlock.EAST_WALL, source.hasProperty(WallBlock.EAST_WALL) ? source.getValue(WallBlock.EAST_WALL) : WallSide.NONE)
-                    .setValue(WallBlock.SOUTH_WALL, source.hasProperty(WallBlock.SOUTH_WALL) ? source.getValue(WallBlock.SOUTH_WALL) : WallSide.NONE)
-                    .setValue(WallBlock.WEST_WALL, source.hasProperty(WallBlock.WEST_WALL) ? source.getValue(WallBlock.WEST_WALL) : WallSide.NONE)
+                    .setValue(WallBlock.NORTH, source.hasProperty(WallBlock.NORTH) ? source.getValue(WallBlock.NORTH) : WallSide.NONE)
+                    .setValue(WallBlock.EAST, source.hasProperty(WallBlock.EAST) ? source.getValue(WallBlock.EAST) : WallSide.NONE)
+                    .setValue(WallBlock.SOUTH, source.hasProperty(WallBlock.SOUTH) ? source.getValue(WallBlock.SOUTH) : WallSide.NONE)
+                    .setValue(WallBlock.WEST, source.hasProperty(WallBlock.WEST) ? source.getValue(WallBlock.WEST) : WallSide.NONE)
                     .setValue(WallBlock.UP, source.hasProperty(WallBlock.UP) ? source.getValue(WallBlock.UP) : true)
                     .setValue(WallBlock.WATERLOGGED, source.hasProperty(WallBlock.WATERLOGGED) ? source.getValue(WallBlock.WATERLOGGED) : false);
         } else {

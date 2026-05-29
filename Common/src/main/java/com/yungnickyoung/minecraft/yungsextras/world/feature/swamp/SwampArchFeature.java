@@ -1,28 +1,28 @@
 package com.yungnickyoung.minecraft.yungsextras.world.feature.swamp;
 
-import com.yungnickyoung.minecraft.yungsextras.world.config.ResourceLocationFeatureConfiguration;
+import com.yungnickyoung.minecraft.yungsextras.world.config.IdentifierFeatureConfiguration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 
-@ParametersAreNonnullByDefault
-public class SwampArchFeature extends AbstractSwampFeature<ResourceLocationFeatureConfiguration> {
+
+
+public class SwampArchFeature extends AbstractSwampFeature<IdentifierFeatureConfiguration> {
     public SwampArchFeature() {
-        super(ResourceLocationFeatureConfiguration.CODEC);
+        super(IdentifierFeatureConfiguration.CODEC);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<ResourceLocationFeatureConfiguration> context) {
+    public boolean place(FeaturePlaceContext<IdentifierFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
         RandomSource randomSource = context.random();
         BlockPos pos = context.origin();
-        ResourceLocation location = context.config().getLocation();
+        Identifier location = context.config().getLocation();
 
         // Find the surface
         BlockPos.MutableBlockPos mutable = pos.mutable();
