@@ -4,7 +4,7 @@ import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractNbtFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -13,11 +13,11 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 
-@ParametersAreNonnullByDefault
+
+
 public class DesertSmallRuinsFeature extends AbstractNbtFeature<NoneFeatureConfiguration> {
-    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/misc/ruins_0");
+    private static final Identifier ID = Identifier.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/misc/ruins_0");
 
     public DesertSmallRuinsFeature() {
         super(NoneFeatureConfiguration.CODEC);

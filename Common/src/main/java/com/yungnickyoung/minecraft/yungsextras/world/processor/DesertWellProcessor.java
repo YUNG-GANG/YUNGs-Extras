@@ -4,7 +4,7 @@ import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -20,7 +20,7 @@ import java.util.List;
 public class DesertWellProcessor implements INbtFeatureProcessor {
     private static final ResourceKey<LootTable> EXTRA = ResourceKey.create(
             Registries.LOOT_TABLE,
-            ResourceLocation.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/extra_archeology"));
+            Identifier.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/extra_archeology"));
 
     @Override
     public void processTemplate(StructureTemplate template, WorldGenLevel level, RandomSource random, BlockPos cornerPos, BlockPos centerPos, StructurePlaceSettings placementSettings) {

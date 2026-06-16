@@ -7,7 +7,7 @@ import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractNbtFeature;
 import com.yungnickyoung.minecraft.yungsextras.world.processor.INbtFeatureProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -15,10 +15,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+
 import java.util.List;
 
-@ParametersAreNonnullByDefault
+
 public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfiguration> {
     public DesertWellFeature() {
         super(DesertWellFeatureConfiguration.CODEC);
@@ -40,7 +40,7 @@ public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfi
         RandomSource randomSource = context.random();
         BlockPos pos = context.origin();
         int radius = context.config().getRadius();
-        ResourceLocation location = context.config().getLocation();
+        Identifier location = context.config().getLocation();
 
         // Find the surface
         BlockPos.MutableBlockPos mutable = pos.mutable();
