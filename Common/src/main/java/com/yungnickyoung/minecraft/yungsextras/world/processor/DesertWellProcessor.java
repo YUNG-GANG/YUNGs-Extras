@@ -28,7 +28,7 @@ public class DesertWellProcessor implements INbtFeatureProcessor {
         List<BlockPos> changedPositions = new ArrayList<>();
         int maxSusSand = random.nextInt(3) + 2;
         int susSandPlaced = 0;
-        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.BROWN_STAINED_GLASS)) {
+        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.STAINED_GLASS.brown())) {
             if (susSandPlaced < maxSusSand && random.nextFloat() < 0.1f) {
                 placeSusSand(level, blockInfo.pos(), BuiltInLootTables.DESERT_WELL_ARCHAEOLOGY);
                 susSandPlaced++;
@@ -49,7 +49,7 @@ public class DesertWellProcessor implements INbtFeatureProcessor {
 
         // Add our own suspicious sand with extra loot (no pottery sherds though)
         int extraSusSand = random.nextInt(3) + 2; // 2-4 extra suspicious sand blocks w/ custom loot table (wishing wells only)
-        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.YELLOW_STAINED_GLASS)) {
+        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.STAINED_GLASS.yellow())) {
             if (extraSusSand > 0 && random.nextFloat() < 0.4f) {
                 placeSusSand(level, blockInfo.pos(), EXTRA);
                 extraSusSand--;
@@ -61,7 +61,7 @@ public class DesertWellProcessor implements INbtFeatureProcessor {
 
     private void placeSusSand(WorldGenLevel level, BlockPos pos, ResourceKey<LootTable> lootTable) {
         level.setBlock(pos, Blocks.SUSPICIOUS_SAND.defaultBlockState(), 3);
-        level.getBlockEntity(pos, BlockEntityType.BRUSHABLE_BLOCK).ifPresent((blockEntity) -> {
+        level.getBlockEntity(pos, net.minecraft.world.level.block.entity.BlockEntityTypes.BRUSHABLE_BLOCK).ifPresent((blockEntity) -> {
             blockEntity.setLootTable(lootTable, pos.asLong());
         });
     }
