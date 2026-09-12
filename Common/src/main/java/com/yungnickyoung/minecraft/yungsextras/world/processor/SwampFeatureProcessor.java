@@ -20,7 +20,7 @@ public class SwampFeatureProcessor implements INbtFeatureProcessor {
     @Override
     public void processTemplate(StructureTemplate template, WorldGenLevel level, RandomSource randomSource, BlockPos cornerPos, BlockPos centerPos, StructurePlaceSettings placementSettings) {
         // Fill below the pillar
-        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.GRAY_STAINED_GLASS)) {
+        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.STAINED_GLASS.gray())) {
             level.setBlock(blockInfo.pos(), STONE_BRICK_SELECTOR.get(randomSource), 2);
             // Replace any air or water under this position with stone brick until we hit a solid block
             BlockPos.MutableBlockPos mutable = blockInfo.pos().mutable().move(Direction.DOWN);
@@ -33,7 +33,7 @@ public class SwampFeatureProcessor implements INbtFeatureProcessor {
         }
 
         // Randomize stairs in the pillar, for a ruined effect
-        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.LIGHT_GRAY_STAINED_GLASS)) {
+        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.STAINED_GLASS.lightGray())) {
             level.setBlock(blockInfo.pos(), STONE_BRICK_STAIRS_SELECTOR.get(randomSource).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.Plane.HORIZONTAL.getRandomDirection(randomSource)), 2);
         }
 
@@ -53,7 +53,7 @@ public class SwampFeatureProcessor implements INbtFeatureProcessor {
         }
 
         // Candles
-        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.GREEN_CANDLE)) {
+        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.DYED_CANDLE.green())) {
             int numCandles = randomSource.nextInt(4) + 1;
             boolean lit = randomSource.nextFloat() < .1f;
             level.setBlock(blockInfo.pos(),
@@ -72,8 +72,8 @@ public class SwampFeatureProcessor implements INbtFeatureProcessor {
     private static final BlockStateRandomizer STONE_BRICK_STAIRS_SELECTOR = new BlockStateRandomizer(Blocks.STONE_BRICK_STAIRS.defaultBlockState())
             .addBlock(Blocks.MOSSY_STONE_BRICK_STAIRS.defaultBlockState(), 0.6f);
 
-    private static final List<Block> CANDLES = List.of(Blocks.CANDLE, Blocks.WHITE_CANDLE, Blocks.GRAY_CANDLE,
-            Blocks.LIGHT_GRAY_CANDLE, Blocks.BROWN_CANDLE, Blocks.GREEN_CANDLE, Blocks.PURPLE_CANDLE, Blocks.BLACK_CANDLE);
+    private static final List<Block> CANDLES = List.of(Blocks.CANDLE, Blocks.DYED_CANDLE.white(), Blocks.DYED_CANDLE.gray(),
+            Blocks.DYED_CANDLE.lightGray(), Blocks.DYED_CANDLE.brown(), Blocks.DYED_CANDLE.green(), Blocks.DYED_CANDLE.purple(), Blocks.DYED_CANDLE.black());
 
     private static Block getRandomCandle(RandomSource randomSource) {
         int i = randomSource.nextInt(CANDLES.size());
