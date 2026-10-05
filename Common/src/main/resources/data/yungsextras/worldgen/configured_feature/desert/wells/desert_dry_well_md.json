@@ -1,7 +1,0 @@
-{
-  "type": "yungsextras:desert_well",
-  "config": {
-    "location": "yungsextras:desert/wells/dry_well_md",
-    "radius": 2
-  }
-}

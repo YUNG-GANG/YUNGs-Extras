@@ -6,9 +6,10 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -28,7 +29,7 @@ public class DesertWellProcessor implements INbtFeatureProcessor {
         List<BlockPos> changedPositions = new ArrayList<>();
         int maxSusSand = random.nextInt(3) + 2;
         int susSandPlaced = 0;
-        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.BROWN_STAINED_GLASS)) {
+        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.STAINED_GLASS.pick(DyeColor.BROWN))) {
             if (susSandPlaced < maxSusSand && random.nextFloat() < 0.1f) {
                 placeSusSand(level, blockInfo.pos(), BuiltInLootTables.DESERT_WELL_ARCHAEOLOGY);
                 susSandPlaced++;
@@ -49,7 +50,7 @@ public class DesertWellProcessor implements INbtFeatureProcessor {
 
         // Add our own suspicious sand with extra loot (no pottery sherds though)
         int extraSusSand = random.nextInt(3) + 2; // 2-4 extra suspicious sand blocks w/ custom loot table (wishing wells only)
-        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.YELLOW_STAINED_GLASS)) {
+        for (StructureTemplate.StructureBlockInfo blockInfo : template.filterBlocks(cornerPos, placementSettings, Blocks.STAINED_GLASS.pick(DyeColor.YELLOW))) {
             if (extraSusSand > 0 && random.nextFloat() < 0.4f) {
                 placeSusSand(level, blockInfo.pos(), EXTRA);
                 extraSusSand--;
@@ -61,7 +62,7 @@ public class DesertWellProcessor implements INbtFeatureProcessor {
 
     private void placeSusSand(WorldGenLevel level, BlockPos pos, ResourceKey<LootTable> lootTable) {
         level.setBlock(pos, Blocks.SUSPICIOUS_SAND.defaultBlockState(), 3);
-        level.getBlockEntity(pos, BlockEntityType.BRUSHABLE_BLOCK).ifPresent((blockEntity) -> {
+        level.getBlockEntity(pos, BlockEntityTypes.BRUSHABLE_BLOCK).ifPresent((blockEntity) -> {
             blockEntity.setLootTable(lootTable, pos.asLong());
         });
     }

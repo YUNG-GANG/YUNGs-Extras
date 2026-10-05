@@ -1,14 +1,14 @@
 package com.yungnickyoung.minecraft.yungsextras.world.config;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.ExtraCodecs;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
-public class DesertWellFeatureConfiguration implements FeatureConfiguration {
-    public static final Codec<DesertWellFeatureConfiguration> CODEC = RecordCodecBuilder.create((codecBuilder) -> codecBuilder
+public class DesertWellFeatureConfiguration {
+    public static final MapCodec<DesertWellFeatureConfiguration> CODEC = RecordCodecBuilder.mapCodec((codecBuilder) -> codecBuilder
             .group(
                     Identifier.CODEC.fieldOf("location").forGetter(DesertWellFeatureConfiguration::getLocation),
                     ExtraCodecs.NON_NEGATIVE_INT.fieldOf("radius").forGetter(DesertWellFeatureConfiguration::getRadius))

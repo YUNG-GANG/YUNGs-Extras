@@ -1,5 +1,6 @@
 package com.yungnickyoung.minecraft.yungsextras.module;
 
+import com.mojang.serialization.MapCodec;
 import com.yungnickyoung.minecraft.yungsapi.api.autoregister.AutoRegister;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.world.config.DesertWellFeatureConfiguration;
@@ -7,42 +8,41 @@ import com.yungnickyoung.minecraft.yungsextras.world.config.IdentifierFeatureCon
 import com.yungnickyoung.minecraft.yungsextras.world.feature.desert.*;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.*;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 @AutoRegister(YungsExtrasCommon.MOD_ID)
 public class FeatureModule {
     /* Desert Features */
     @AutoRegister("desert_well")
-    public static Feature<DesertWellFeatureConfiguration> DESERT_WELL = new DesertWellFeature();
+    public static MapCodec<? extends Feature> DESERT_WELL = DesertWellFeature.CODEC;
 
     @AutoRegister("desert_obelisk")
-    public static Feature<IdentifierFeatureConfiguration> DESERT_OBELISK = new DesertObeliskFeature();
+    public static MapCodec<? extends Feature> DESERT_OBELISK = DesertObeliskFeature.CODEC;
 
     @AutoRegister("desert_giant_torch")
-    public static Feature<NoneFeatureConfiguration> DESERT_GIANT_TORCH = new DesertGiantTorchFeature();
+    public static MapCodec<? extends Feature> DESERT_GIANT_TORCH = DesertGiantTorchFeature.CODEC;
 
     @AutoRegister("desert_ruins_0")
-    public static Feature<NoneFeatureConfiguration> DESERT_RUINS_0 = new DesertSmallRuinsFeature();
+    public static MapCodec<? extends Feature> DESERT_RUINS_0 = DesertSmallRuinsFeature.CODEC;
 
     @AutoRegister("desert_chillzone")
-    public static Feature<NoneFeatureConfiguration> DESERT_CHILLZONE = new ChillzoneDesertFeature();
+    public static MapCodec<? extends Feature> DESERT_CHILLZONE = ChillzoneDesertFeature.CODEC;
 
     /* Swamp Features */
     @AutoRegister("swamp_pillar")
-    public static Feature<IdentifierFeatureConfiguration> SWAMP_PILLAR = new SwampPillarFeature();
+    public static MapCodec<? extends Feature> SWAMP_PILLAR = SwampPillarFeature.CODEC;
 
     @AutoRegister("swamp_ogre")
-    public static Feature<IdentifierFeatureConfiguration> SWAMP_OGRE = new SwampOgreFeature();
+    public static MapCodec<? extends Feature> SWAMP_OGRE = SwampOgreFeature.CODEC;
 
     @AutoRegister("swamp_cubby")
-    public static Feature<IdentifierFeatureConfiguration> SWAMP_CUBBY = new SwampCubbyFeature();
+    public static MapCodec<? extends Feature> SWAMP_CUBBY = SwampCubbyFeature.CODEC;
 
     @AutoRegister("swamp_arch")
-    public static Feature<IdentifierFeatureConfiguration> SWAMP_ARCH = new SwampArchFeature();
+    public static MapCodec<? extends Feature> SWAMP_ARCH = SwampArchFeature.CODEC;
 
     @AutoRegister("swamp_double_arch")
-    public static Feature<IdentifierFeatureConfiguration> SWAMP_DOUBLE_ARCH = new SwampDoubleArchFeature();
+    public static MapCodec<? extends Feature> SWAMP_DOUBLE_ARCH = SwampDoubleArchFeature.CODEC;
 
     @AutoRegister("swamp_church")
-    public static Feature<IdentifierFeatureConfiguration> SWAMP_CHURCH = new SwampChurchFeature();
+    public static MapCodec<? extends Feature> SWAMP_CHURCH = SwampChurchFeature.CODEC;
 }

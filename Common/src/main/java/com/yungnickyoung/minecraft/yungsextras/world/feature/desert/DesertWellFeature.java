@@ -1,5 +1,7 @@
 package com.yungnickyoung.minecraft.yungsextras.world.feature.desert;
 
+import com.mojang.serialization.MapCodec;
+
 import com.google.common.collect.Lists;
 import com.yungnickyoung.minecraft.yungsextras.module.FeatureProcessorModule;
 import com.yungnickyoung.minecraft.yungsextras.world.config.DesertWellFeatureConfiguration;
@@ -11,17 +13,20 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 
 import java.util.List;
 
 
-public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfiguration> {
-    public DesertWellFeature() {
-        super(DesertWellFeatureConfiguration.CODEC);
+public class DesertWellFeature extends AbstractNbtFeature {
+    public static final MapCodec<DesertWellFeature> CODEC = DesertWellFeatureConfiguration.CODEC.xmap(DesertWellFeature::new, feature -> feature.config);
+    private final DesertWellFeatureConfiguration config;
+
+    public DesertWellFeature(DesertWellFeatureConfiguration config) {
+        this.config = config;
     }
 
     /**
@@ -35,12 +40,9 @@ public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfi
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<DesertWellFeatureConfiguration> context) {
-        WorldGenLevel level = context.level();
-        RandomSource randomSource = context.random();
-        BlockPos pos = context.origin();
-        int radius = context.config().getRadius();
-        Identifier location = context.config().getLocation();
+    public boolean place(WorldGenLevel level, ChunkGenerator chunkGenerator, RandomSource randomSource, BlockPos pos) {
+        int radius = config.getRadius();
+        Identifier location = config.getLocation();
 
         // Find the surface
         BlockPos.MutableBlockPos mutable = pos.mutable();
@@ -71,5 +73,10 @@ public class DesertWellFeature extends AbstractNbtFeature<DesertWellFeatureConfi
         // Generate the well
         StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos.relative(Direction.DOWN, 6));
         return template != null;
+    }
+
+    @Override
+    public MapCodec<DesertWellFeature> codec() {
+        return CODEC;
     }
 }

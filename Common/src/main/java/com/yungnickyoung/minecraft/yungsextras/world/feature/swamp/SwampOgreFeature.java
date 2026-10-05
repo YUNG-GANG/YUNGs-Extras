@@ -1,25 +1,27 @@
 package com.yungnickyoung.minecraft.yungsextras.world.feature.swamp;
 
+import com.mojang.serialization.MapCodec;
+
 import com.yungnickyoung.minecraft.yungsextras.world.config.IdentifierFeatureConfiguration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-public class SwampOgreFeature extends AbstractSwampFeature<IdentifierFeatureConfiguration> {
-    public SwampOgreFeature() {
-        super(IdentifierFeatureConfiguration.CODEC);
+public class SwampOgreFeature extends AbstractSwampFeature {
+    public static final MapCodec<SwampOgreFeature> CODEC = IdentifierFeatureConfiguration.CODEC.xmap(SwampOgreFeature::new, feature -> feature.config);
+    private final IdentifierFeatureConfiguration config;
+
+    public SwampOgreFeature(IdentifierFeatureConfiguration config) {
+        this.config = config;
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<IdentifierFeatureConfiguration> context) {
-        WorldGenLevel level = context.level();
-        RandomSource randomSource = context.random();
-        BlockPos pos = context.origin();
-        Identifier location = context.config().getLocation();
+    public boolean place(WorldGenLevel level, ChunkGenerator chunkGenerator, RandomSource randomSource, BlockPos pos) {
+        Identifier location = config.getLocation();
 
         // Find the surface
         BlockPos.MutableBlockPos mutable = pos.mutable();
@@ -46,5 +48,10 @@ public class SwampOgreFeature extends AbstractSwampFeature<IdentifierFeatureConf
         // Generate
         StructureTemplate template = this.createTemplateFromCenter(location, level, randomSource, surfacePos);
         return template != null;
+    }
+
+    @Override
+    public MapCodec<SwampOgreFeature> codec() {
+        return CODEC;
     }
 }

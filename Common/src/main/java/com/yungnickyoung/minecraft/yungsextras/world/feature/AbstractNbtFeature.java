@@ -1,6 +1,5 @@
 package com.yungnickyoung.minecraft.yungsextras.world.feature;
 
-import com.mojang.serialization.Codec;
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.world.processor.INbtFeatureProcessor;
 import net.minecraft.core.BlockPos;
@@ -8,7 +7,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
@@ -16,11 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends Feature<C> {
+public abstract class AbstractNbtFeature implements Feature {
     protected List<INbtFeatureProcessor> processors;
 
-    public AbstractNbtFeature(Codec<C> codec) {
-        super(codec);
+    public AbstractNbtFeature() {
         this.processors = useProcessors();
     }
 
@@ -52,7 +49,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
             BlockPos centerPos,
             StructurePlaceSettings placement
     ) {
-        Optional<StructureTemplate> templateOptional = level.getLevel().getStructureManager().get(id);
+        Optional<StructureTemplate> templateOptional = level.getLevel().getStructureTemplateManager().get(id);
 
         if (templateOptional.isEmpty()) { // Unsuccessful creation. Name is probably invalid.
             YungsExtrasCommon.LOGGER.warn("Failed to create invalid feature {}", id);
@@ -102,7 +99,7 @@ public abstract class AbstractNbtFeature<C extends FeatureConfiguration> extends
             BlockPos cornerPos,
             StructurePlaceSettings placement
     ) {
-        Optional<StructureTemplate> templateOptional = level.getLevel().getStructureManager().get(id);
+        Optional<StructureTemplate> templateOptional = level.getLevel().getStructureTemplateManager().get(id);
 
         if (templateOptional.isEmpty()) { // Unsuccessful creation. Name is probably invalid.
             YungsExtrasCommon.LOGGER.warn("Failed to create invalid feature {}", id);

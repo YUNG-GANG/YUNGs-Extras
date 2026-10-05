@@ -1,5 +1,7 @@
 package com.yungnickyoung.minecraft.yungsextras.world.feature.desert;
 
+import com.mojang.serialization.MapCodec;
+
 import com.yungnickyoung.minecraft.yungsextras.YungsExtrasCommon;
 import com.yungnickyoung.minecraft.yungsextras.world.feature.AbstractNbtFeature;
 import net.minecraft.core.BlockPos;
@@ -8,26 +10,23 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 
 
 
-public class DesertSmallRuinsFeature extends AbstractNbtFeature<NoneFeatureConfiguration> {
+public class DesertSmallRuinsFeature extends AbstractNbtFeature {
     private static final Identifier ID = Identifier.fromNamespaceAndPath(YungsExtrasCommon.MOD_ID, "desert/misc/ruins_0");
 
+    public static final MapCodec<DesertSmallRuinsFeature> CODEC = MapCodec.unit(DesertSmallRuinsFeature::new);
+
     public DesertSmallRuinsFeature() {
-        super(NoneFeatureConfiguration.CODEC);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-        WorldGenLevel level = context.level();
-        RandomSource randomSource = context.random();
-        BlockPos pos = context.origin();
+    public boolean place(WorldGenLevel level, ChunkGenerator chunkGenerator, RandomSource randomSource, BlockPos pos) {
 
         // Find the surface
         BlockPos.MutableBlockPos mutable = pos.mutable();
@@ -58,5 +57,10 @@ public class DesertSmallRuinsFeature extends AbstractNbtFeature<NoneFeatureConfi
         // Generate the feature
         StructureTemplate template = this.createTemplateFromCenter(ID, level, randomSource, surfacePos);
         return template != null;
+    }
+
+    @Override
+    public MapCodec<DesertSmallRuinsFeature> codec() {
+        return CODEC;
     }
 }

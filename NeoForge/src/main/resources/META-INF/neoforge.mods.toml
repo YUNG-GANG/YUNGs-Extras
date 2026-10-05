@@ -10,7 +10,8 @@ issueTrackerURL="https://github.com/yungnickyoung/YUNGs-Extras/issues"
     credits="${mod_credits}"
     authors="YUNGNICKYOUNG, Acarii"
     description="${mod_description}"
-    logoFile="logo.png"
+    bannerFile="logo.png"
+	iconFile="icon.png"
     displayURL="https://www.curseforge.com/minecraft/mc-mods/yungs-extras"
 
 [modproperties.${mod_id}]
